@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricbricl.com - Mundo de Jogos Virtual Ricbricl</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Verdana", "Arial", sans-serif; font-size: 11px; background: #fff; color: #000; line-height: 1.3; }
+        .wrapper { width: 100%; max-width: 970px; margin: 0 auto; background: #fff; }
+
+        /* BANNER */
+        .top-banner { width: 100%; height: 72px; background: linear-gradient(to right, #1a1a2e, #16213e, #0f3460, #1a1a2e); display: flex; align-items: center; }
+        .banner-inner { width: 100%; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0; }
+        .login-banner-box { width: 180px; height: 72px; background: linear-gradient(to bottom, #660000, #330000); border-right: 1px solid #444; padding: 4px 8px; color: white; font-size: 10px; }
+        .login-banner-box h4 { font-size: 11px; font-weight: bold; margin-bottom: 3px; color: #fff; }
+        .login-banner-box input { width: 100%; font-size: 10px; padding: 1px 3px; margin-bottom: 2px; border: 1px solid #999; }
+        .login-banner-box .login-row { display: flex; gap: 4px; align-items: center; }
+        .login-banner-box button { background: linear-gradient(to bottom, #cc6600, #993300); border: 1px solid #663300; color: white; font-size: 10px; padding: 1px 10px; cursor: pointer; font-weight: bold; }
+        .login-banner-box a { color: #cccccc; font-size: 9px; text-decoration: none; }
+        .login-banner-box a:hover { text-decoration: underline; }
+
+        .logo-section { display: flex; align-items: center; gap: 15px; flex: 1; justify-content: center; }
+        .ricbricl-logo { font-family: "Impact", "Arial Black", sans-serif; font-size: 42px; color: #ff0000; text-shadow: 2px 2px 0px #990000, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; letter-spacing: 1px; font-style: italic; line-height: 1; }
+        .slogan-text { color: #ffffff; font-size: 14px; font-weight: bold; text-shadow: 1px 1px 2px #000; line-height: 1.2; }
+
+        .play-now-btn { background: linear-gradient(to bottom, #3366cc, #003399); border: 2px solid #6699ff; border-radius: 10px; color: white; font-size: 18px; font-weight: bold; padding: 8px 18px; text-decoration: none; text-shadow: 1px 1px 2px #000; box-shadow: 0 2px 5px rgba(0,0,0,0.5); cursor: pointer; margin-right: 15px; }
+        .play-now-btn:hover { background: linear-gradient(to bottom, #4477dd, #1144aa); }
+
+        /* NAVEGACAO */
+        .navbar { background: linear-gradient(to bottom, #87CEEB, #5B9BD5, #4682B4); border-top: 1px solid #A8D5F0; border-bottom: 2px solid #2F4F4F; padding: 4px 10px; }
+        .navbar-inner { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+        .navbar-inner a { color: #ffffff; text-decoration: none; font-size: 12px; font-weight: bold; text-shadow: 1px 1px 1px #2F4F4F; padding: 2px 6px; }
+        .navbar-inner a:hover { color: #ffff00; }
+        .navbar-inner a.active { color: #ffff00; }
+        .nav-sep { color: #ffffff; opacity: 0.6; font-size: 12px; }
+
+        /* CONTEUDO */
+        .main-content { display: flex; gap: 0; background: #f0f0f0; border-left: 1px solid #ccc; border-right: 1px solid #ccc; }
+        .left-sidebar { width: 170px; background: #f5f5f5; border-right: 1px solid #ccc; padding: 8px; }
+        .center-content { flex: 1; padding: 10px; background: #f0f0f0; }
+        .right-sidebar { width: 170px; background: #f5f5f5; border-left: 1px solid #ccc; padding: 8px; }
+
+        /* LOGIN SIDEBAR */
+        .login-box-sidebar { background: #fff; border: 1px solid #999; padding: 6px; margin-bottom: 10px; }
+        .login-box-sidebar h4 { font-size: 11px; font-weight: bold; margin-bottom: 5px; color: #333; border-bottom: 1px solid #ccc; padding-bottom: 3px; }
+        .login-box-sidebar label { font-size: 10px; display: block; margin-bottom: 1px; color: #333; }
+        .login-box-sidebar input { width: 100%; font-size: 10px; padding: 2px; margin-bottom: 4px; border: 1px solid #999; }
+        .login-box-sidebar button { background: linear-gradient(to bottom, #e0e0e0, #c0c0c0); border: 1px solid #999; padding: 2px 12px; font-size: 10px; cursor: pointer; }
+        .login-box-sidebar .forgot-link { font-size: 9px; color: #0066cc; text-decoration: none; }
+
+        /* SIDEBAR BOXES */
+        .side-box { background: #fff; border: 1px solid #ccc; margin-bottom: 10px; }
+        .side-box-title { background: linear-gradient(to bottom, #87CEEB, #4682B4); color: white; padding: 3px 6px; font-weight: bold; font-size: 11px; border-bottom: 1px solid #2F4F4F; }
+        .side-box-body { padding: 6px; font-size: 10px; }
+        .side-box-body ul { list-style: none; }
+        .side-box-body li { padding: 2px 0; border-bottom: 1px dotted #ddd; }
+        .side-box-body a { color: #0066cc; text-decoration: none; }
+        .side-box-body a:hover { text-decoration: underline; }
+
+        /* HOMEPAGE */
+        .page-title { font-size: 16px; font-weight: bold; color: #000; margin-bottom: 5px; }
+        .free-text { color: #cc0000; font-weight: bold; font-size: 12px; margin-bottom: 10px; }
+        .features-area { display: flex; gap: 10px; }
+        .features-list { flex: 1; }
+        .feature-item { display: flex; gap: 8px; margin-bottom: 8px; padding: 6px; background: #fff; border: 1px solid #ddd; }
+        .feature-icon-box { width: 40px; height: 40px; background: #e8e8e8; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+        .feature-text h3 { font-size: 12px; color: #0000cc; margin-bottom: 2px; font-weight: bold; }
+        .feature-text p { font-size: 10px; color: #333; }
+
+        .promo-box { width: 340px; background: #2d5016; border: 3px solid #4a7c23; padding: 10px; text-align: center; color: white; }
+        .promo-box h2 { font-size: 32px; font-weight: bold; text-shadow: 2px 2px 4px #000; margin-bottom: 5px; letter-spacing: 3px; }
+        .brick-visual { width: 140px; height: 70px; background: linear-gradient(135deg, #333, #1a1a1a); margin: 10px auto; border-radius: 3px; box-shadow: 3px 3px 8px rgba(0,0,0,0.5); position: relative; border: 2px solid #555; }
+        .brick-visual::before { content: ""; position: absolute; top: 8px; left: 15px; width: 20px; height: 12px; background: #444; border-radius: 50% 50% 0 0; box-shadow: 30px 0 0 #444, 60px 0 0 #444, 90px 0 0 #444; }
+        .promo-box .pc-text { font-size: 11px; margin: 8px 0; }
+        .download-btn { display: inline-block; background: linear-gradient(to bottom, #FFD700, #FFA500); color: #000; font-size: 15px; font-weight: bold; padding: 8px 20px; border: 2px solid #FF8C00; border-radius: 6px; text-decoration: none; margin-top: 5px; box-shadow: 0 3px 5px rgba(0,0,0,0.3); cursor: pointer; }
+
+        .kid-safe-box { display: flex; gap: 8px; margin-top: 8px; padding: 6px; background: #fff; border: 1px solid #ddd; align-items: center; }
+        .kid-safe-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #E6E6FA, #D8BFD8); border: 2px solid #9370DB; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-direction: column; font-size: 9px; text-align: center; color: #4B0082; flex-shrink: 0; }
+        .kid-safe-icon .big { font-size: 14px; font-weight: bold; }
+        .kid-safe-text { font-size: 10px; }
+        .kid-safe-text a { color: #0066cc; text-decoration: underline; font-size: 10px; }
+
+        /* COOL PLACES */
+        .cool-places { margin-top: 15px; border: 2px solid #999; background: #fff; }
+        .cool-places-header { background: linear-gradient(to bottom, #d0d0d0, #b0b0b0); padding: 5px 10px; font-weight: bold; font-size: 12px; border-bottom: 1px solid #999; }
+        .cool-places-inner { display: flex; padding: 8px; gap: 8px; }
+        .cool-places-desc { width: 120px; font-size: 10px; padding: 5px; }
+        .cool-places-desc strong { display: block; margin-bottom: 5px; }
+        .place-thumb { width: 100px; height: 75px; background: #e0e0e0; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+
+        /* GAMES */
+        .games-section-title { font-size: 14px; font-weight: bold; margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; }
+        .games-browse { font-size: 10px; margin-bottom: 8px; }
+        .games-browse a { color: #0066cc; text-decoration: none; }
+        .games-browse a:hover { text-decoration: underline; }
+        .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .game-card { background: #fff; border: 1px solid #ccc; padding: 5px; font-size: 10px; }
+        .game-thumb { width: 100%; height: 110px; background: linear-gradient(135deg, #87CEEB, #4682B4); border: 1px solid #999; display: flex; align-items: center; justify-content: center; font-size: 40px; margin-bottom: 4px; }
+        .game-title { font-weight: bold; color: #0000cc; font-size: 11px; margin-bottom: 2px; cursor: pointer; }
+        .game-title:hover { text-decoration: underline; }
+        .game-info-line { color: #333; line-height: 1.4; }
+        .game-info-line .label { color: #666; }
+        .game-info-line .value { color: #cc0000; }
+        .game-info-line .creator { color: #0000cc; }
+        .players-online { color: #cc0000; margin-top: 3px; font-weight: bold; }
+
+        /* CATALOG */
+        .catalog-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+        .catalog-item { background: #fff; border: 1px solid #ccc; padding: 5px; text-align: center; font-size: 9px; }
+        .catalog-thumb { width: 100%; height: 70px; background: #e8e8e8; border: 1px solid #bbb; display: flex; align-items: center; justify-content: center; font-size: 30px; margin-bottom: 4px; }
+        .item-name { font-weight: bold; color: #0000cc; margin-bottom: 2px; font-size: 9px; }
+        .item-creator { color: #666; font-size: 8px; }
+        .item-stats { color: #333; font-size: 8px; margin-top: 2px; }
+        .item-price { color: #228B22; font-weight: bold; font-size: 9px; }
+
+        /* PEOPLE */
+        .people-table { width: 100%; border-collapse: collapse; font-size: 10px; }
+        .people-table th { background: linear-gradient(to bottom, #87CEEB, #4682B4); color: white; padding: 4px 8px; text-align: left; font-size: 11px; }
+        .people-table td { padding: 6px 8px; border-bottom: 1px solid #ddd; vertical-align: top; }
+        .people-table tr:nth-child(even) { background: #f8f8f8; }
+        .people-avatar { width: 40px; height: 50px; background: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        .people-name { color: #0000cc; font-weight: bold; }
+        .people-status { color: #228B22; }
+        .people-bio { color: #333; font-size: 9px; max-width: 300px; }
+        .people-location { color: #666; font-size: 9px; }
+
+        /* PROFILE */
+        .profile-layout { display: flex; gap: 10px; }
+        .profile-left { width: 200px; }
+        .profile-center { flex: 1; }
+        .profile-right { width: 250px; }
+        .profile-avatar-big { width: 180px; height: 220px; background: linear-gradient(135deg, #FFE4B5, #DEB887); border: 2px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 80px; margin-bottom: 5px; }
+        .profile-name { font-size: 16px; font-weight: bold; text-align: center; }
+        .profile-status { text-align: center; color: #666; font-size: 10px; margin-bottom: 5px; }
+        .report-link { text-align: center; font-size: 9px; }
+        .report-link a { color: #0066cc; }
+        .badges-box { background: #fff; border: 1px solid #ccc; margin-top: 10px; }
+        .badges-title { background: linear-gradient(to bottom, #d0d0d0, #b0b0b0); padding: 3px 6px; font-weight: bold; font-size: 11px; text-align: center; }
+        .badges-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 6px; }
+        .badge-item { text-align: center; font-size: 9px; }
+        .badge-icon { width: 40px; height: 40px; background: #e0e0e0; border: 1px solid #ccc; margin: 0 auto 2px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        .stats-box { background: #fff; border: 1px solid #ccc; margin-top: 10px; }
+        .stats-title { background: linear-gradient(to bottom, #d0d0d0, #b0b0b0); padding: 3px 6px; font-weight: bold; font-size: 11px; text-align: center; }
+        .stats-body { padding: 6px; font-size: 10px; }
+        .stats-body div { margin-bottom: 3px; }
+        .profile-bio-box { background: #fff; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; font-size: 11px; }
+        .profile-bio-box h3 { font-size: 12px; margin-bottom: 5px; }
+        .showcase-box { background: #fff; border: 1px solid #ccc; margin-bottom: 10px; }
+        .showcase-title { background: linear-gradient(to bottom, #87CEEB, #4682B4); color: white; padding: 4px 8px; font-weight: bold; font-size: 11px; }
+        .showcase-body { padding: 8px; }
+        .showcase-place { display: flex; gap: 8px; margin-bottom: 8px; }
+        .showcase-thumb { width: 120px; height: 90px; background: linear-gradient(135deg, #87CEEB, #4682B4); border: 1px solid #999; display: flex; align-items: center; justify-content: center; font-size: 40px; flex-shrink: 0; }
+        .showcase-info { font-size: 10px; }
+        .showcase-info h4 { color: #0000cc; font-size: 11px; margin-bottom: 3px; }
+        .friends-box { background: #fff; border: 1px solid #ccc; }
+        .friends-title { background: linear-gradient(to bottom, #87CEEB, #4682B4); color: white; padding: 4px 8px; font-weight: bold; font-size: 11px; }
+        .friends-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 8px; }
+        .friend-item { text-align: center; font-size: 9px; }
+        .friend-avatar { width: 50px; height: 60px; background: #e0e0e0; border: 1px solid #ccc; margin: 0 auto 2px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+        .friend-name { color: #cc0000; }
+
+        /* GAME DETAIL */
+        .game-detail-layout { display: flex; gap: 10px; }
+        .game-detail-left { flex: 1; }
+        .game-detail-right { width: 250px; }
+        .game-big-thumb { width: 100%; height: 250px; background: linear-gradient(135deg, #87CEEB, #4682B4); border: 2px solid #999; display: flex; align-items: center; justify-content: center; font-size: 80px; margin-bottom: 10px; }
+        .play-btn-big { display: block; width: 100%; background: linear-gradient(to bottom, #7CFC00, #32CD32, #228B22); border: 2px solid #006400; color: white; font-size: 20px; font-weight: bold; padding: 12px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 10px; cursor: pointer; text-shadow: 1px 1px 2px #000; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .play-btn-big:hover { background: linear-gradient(to bottom, #90EE90, #3dd83d, #2ca32c); }
+        .visit-solo-btn { display: inline-block; background: linear-gradient(to bottom, #87CEEB, #4682B4); border: 1px solid #2F4F4F; color: white; padding: 4px 12px; font-size: 11px; text-decoration: none; border-radius: 4px; cursor: pointer; }
+        .game-info-panel { background: #fff; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+        .game-info-panel h3 { font-size: 14px; margin-bottom: 8px; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+        .info-row { margin-bottom: 4px; font-size: 11px; }
+        .info-row .label { color: #666; }
+        .info-row .value { color: #0000cc; }
+        .description-box { background: #fff; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; font-size: 11px; }
+        .description-box h4 { font-size: 12px; margin-bottom: 5px; }
+        .comments-section { background: #fff; border: 1px solid #ccc; }
+        .comments-header { background: linear-gradient(to bottom, #d0d0d0, #b0b0b0); padding: 4px 8px; font-weight: bold; font-size: 11px; }
+        .comment-item { padding: 8px; border-bottom: 1px dotted #ccc; font-size: 10px; }
+        .comment-author { font-weight: bold; color: #0000cc; }
+        .comment-date { color: #999; font-size: 9px; }
+        .server-list { margin-top: 10px; }
+        .server-row { display: flex; align-items: center; gap: 5px; margin-bottom: 5px; font-size: 10px; }
+        .server-players { display: flex; gap: 2px; }
+        .mini-avatar { width: 20px; height: 25px; background: #e0e0e0; border: 1px solid #999; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+
+        /* FOOTER */
+        .footer { text-align: center; font-size: 9px; color: #666; padding: 10px; border-top: 1px solid #ccc; background: #f5f5f5; }
+        .footer a { color: #0066cc; text-decoration: none; }
+        .footer-links { margin-bottom: 5px; }
+        .footer-links a { margin: 0 4px; }
+
+        /* PAGINATION */
+        .pagination { text-align: center; margin: 10px 0; font-size: 11px; }
+        .pagination a { color: #0066cc; text-decoration: none; margin: 0 2px; }
+        .pagination strong { color: #000; }
+
+        /* UTILITIES */
+        .hidden { display: none !important; }
+        .section-header { font-size: 14px; font-weight: bold; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid #ccc; }
+        .search-box { margin-bottom: 10px; }
+        .search-box input { padding: 3px; border: 1px solid #999; font-size: 11px; width: 200px; }
+        .search-box button { padding: 3px 10px; background: linear-gradient(to bottom, #e0e0e0, #c0c0c0); border: 1px solid #999; font-size: 11px; cursor: pointer; }
+
+        /* USER BAR */
+        .user-bar { display: none; background: linear-gradient(to bottom, #90EE90, #228B22); border: 1px solid #006400; border-radius: 4px; padding: 4px 8px; color: white; font-size: 11px; align-items: center; gap: 10px; width: 180px; }
+        .user-bar.active { display: flex; flex-direction: column; align-items: flex-start; }
+        .user-bar a { color: #ffff00; text-decoration: none; font-size: 10px; }
+
+        /* MODAL */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-overlay.active { display: flex; }
+        .modal-box { background: #fff; border: 3px solid #4682B4; width: 380px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .modal-title { font-size: 16px; font-weight: bold; color: #4682B4; margin-bottom: 15px; text-align: center; border-bottom: 2px solid #87CEEB; padding-bottom: 10px; }
+        .form-row { margin-bottom: 10px; }
+        .form-row label { display: block; font-weight: bold; margin-bottom: 2px; font-size: 11px; }
+        .form-row input { width: 100%; padding: 5px; border: 1px solid #999; font-size: 11px; }
+        .btn-submit { background: linear-gradient(to bottom, #87CEEB, #4682B4); border: 1px solid #2F4F4F; color: white; padding: 8px 20px; font-size: 12px; font-weight: bold; cursor: pointer; width: 100%; }
+        .btn-submit:hover { background: linear-gradient(to bottom, #5a9fd4, #3a6fa5); }
+        .btn-green { background: linear-gradient(to bottom, #32CD32, #228B22); border: 1px solid #006400; }
+        .btn-green:hover { background: linear-gradient(to bottom, #3dd83d, #2ca32c); }
+        .modal-footer { margin-top: 15px; text-align: center; font-size: 10px; }
+        .modal-footer a { color: #0066cc; cursor: pointer; }
+        .alert-box { padding: 8px; margin-bottom: 10px; border-radius: 4px; font-size: 11px; }
+        .alert-success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .alert-error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .fade-in { animation: fadeIn 0.3s ease-out; }
+
+        @media (max-width: 768px) {
+            .wrapper { width: 100%; }
+            .main-content { flex-direction: column; }
+            .left-sidebar, .right-sidebar { width: 100%; }
+            .features-area { flex-direction: column; }
+            .promo-box { width: 100%; }
+            .games-grid { grid-template-columns: repeat(2, 1fr); }
+            .catalog-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- BANNER SUPERIOR -->
+    <div class="top-banner">
+        <div class="banner-inner">
+            <div class="login-banner-box" id="loginBannerBox">
+                <h4>Conecte-se</h4>
+                <input type="text" id="bannerUsername" placeholder="Nome do personagem" style="margin-bottom:2px;">
+                <input type="password" id="bannerPassword" placeholder="Senha">
+                <div class="login-row">
+                    <button onclick="handleBannerLogin()">Conecte-se</button>
+                    <a href="#" onclick="showSignup()" style="margin-left:5px;">Cadastre-se!</a>
+                </div>
+                <div style="margin-top:2px;">
+                    <a href="#" style="font-size:9px;">Esqueceu sua senha?</a>
+                </div>
+            </div>
+
+            <div class="user-bar" id="userBar">
+                <div><strong id="userNameDisplay">Usuario</strong></div>
+                <div>R$: <span id="robuxDisplay">0</span> | Tix: <span id="tixDisplay">0</span></div>
+                <div><a href="#" onclick="handleLogout()">Sair</a></div>
+            </div>
+
+            <div class="logo-section">
+                <div class="ricbricl-logo">Ricbricl</div>
+                <div class="slogan-text">Think.<br>Create.</div>
+            </div>
+
+            <button class="play-now-btn" onclick="playNow()">PLAY NOW</button>
+        </div>
+    </div>
+
+    <!-- NAVEGACAO -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="active" onclick="showPage('home')">Meu Ricbricl</a>
+            <span class="nav-sep">|</span>
+            <a href="#" onclick="showPage('games')">Jogos</a>
+            <span class="nav-sep">|</span>
+            <a href="#" onclick="showPage('catalog')">Catalogo</a>
+            <span class="nav-sep">|</span>
+            <a href="#" onclick="showPage('people')">Pessoas</a>
+            <span class="nav-sep">|</span>
+            <a href="#" onclick="showPage('buildersclub')">Clube dos Construtores</a>
+            <span class="nav-sep">|</span>
+            <a href="#" onclick="showPage('forum')">Forum</a>
+            <span class="nav-sep">|</span>
+            <a href="#" onclick="showPage('news')">Noticias</a>
+            <span class="nav-sep">|</span>
+            <a href="#" onclick="showPage('parents')">Pais</a>
+            <span class="nav-sep">|</span>
+            <a href="#" onclick="showPage('help')">Ajuda</a>
+        </div>
+    </div>
+
+    <!-- CONTEUDO PRINCIPAL -->
+    <div class="main-content">
+
+        <!-- SIDEBAR ESQUERDA -->
+        <div class="left-sidebar" id="leftSidebar">
+            <div class="login-box-sidebar" id="sidebarLogin">
+                <h4>Login de membro</h4>
+                <label>Nome do personagem</label>
+                <input type="text" id="sidebarUsername" placeholder="">
+                <label>Senha</label>
+                <input type="password" id="sidebarPassword" placeholder="">
+                <div style="text-align:center; margin-top:5px;">
+                    <button onclick="handleSidebarLogin()">Conecte-se</button>
+                </div>
+                <div style="text-align:center; margin-top:5px;">
+                    <a href="#" class="forgot-link" onclick="showSignup()">Cadastre-se!</a><br>
+                    <a href="#" class="forgot-link">Esqueceu sua senha?</a>
+                </div>
+            </div>
+
+            <div class="avatar-display" id="sidebarAvatar" style="display:none;">
+                <div style="font-size:60px;">👤</div>
+                <div id="sidebarUserName" style="font-weight:bold; margin-top:5px;"></div>
+            </div>
+
+            <div class="side-box">
+                <div class="side-box-title">Navegar</div>
+                <div class="side-box-body">
+                    <ul>
+                        <li><a href="#" onclick="showPage('games')">Jogos</a></li>
+                        <li><a href="#" onclick="showPage('catalog')">Catalogo</a></li>
+                        <li><a href="#" onclick="showPage('people')">Pessoas</a></li>
+                        <li><a href="#" onclick="showPage('buildersclub')">Clube dos Construtores</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="side-box">
+                <div class="side-box-title">Tempo</div>
+                <div class="side-box-body">
+                    <ul>
+                        <li><a href="#">Agora</a></li>
+                        <li><a href="#">Dia passado</a></li>
+                        <li><a href="#">Semana passada</a></li>
+                        <li><a href="#">Mes passado</a></li>
+                        <li><a href="#">De todos os tempos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTEUDO CENTRAL -->
+        <div class="center-content" id="centerContent">
+
+            <!-- PAGINA INICIAL -->
+            <div id="page-home" class="page-section">
+                <div class="page-title">Mundo de Jogos Virtual Ricbricl</div>
+                <div class="free-text">Ricbricl e gratis!</div>
+
+                <div class="features-area">
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon-box">🏗️</div>
+                            <div class="feature-text">
+                                <h3>Construa seu espaco pessoal</h3>
+                                <p>Crie edificios, veiculos, cenarios e armadilhas com milhares de pecas virtuais.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon-box">🌍</div>
+                            <div class="feature-text">
+                                <h3>Conheca novos amigos online</h3>
+                                <p>Visite a casa do seu amigo, converse em 3D e construam juntos.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon-box">⚔️</div>
+                            <div class="feature-text">
+                                <h3>Batalha nas Arenas de Tijolos</h3>
+                                <p>Use o estilingue, o foguete ou outras ferramentas de batalha de blocos. Cuidado para nao ser "bloxxado"!</p>
+                            </div>
+                        </div>
+                        <div class="kid-safe-box">
+                            <div class="kid-safe-icon">
+                                <span class="big">Kid Safe</span>
+                                <span>This website is COPPA compliant</span>
+                            </div>
+                            <div class="kid-safe-text">
+                                <a href="#" onclick="showPage('parents')">Parents Click Here</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promo-box">
+                        <h2>BUILD IT...</h2>
+                        <div class="brick-visual"></div>
+                        <div class="pc-text">Funciona com seu<br>PC Windows!</div>
+                        <button class="download-btn" onclick="playNow()">FREE - Download and Play!</button>
+                    </div>
+                </div>
+
+                <div class="cool-places">
+                    <div class="cool-places-header">Cool Places</div>
+                    <div class="cool-places-inner">
+                        <div class="cool-places-desc">
+                            <strong>Cool Places</strong>
+                            Come check out some of Builderman's favorite Ricbricl places!
+                        </div>
+                        <div class="place-thumb">🏠</div>
+                        <div class="place-thumb">🏰</div>
+                        <div class="place-thumb">🎮</div>
+                        <div class="place-thumb">🏎️</div>
+                        <div class="place-thumb">⚔️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGINA DE JOGOS -->
+            <div id="page-games" class="page-section hidden">
+                <div class="games-section-title">
+                    <span>Jogos 📦</span>
+                    <span style="font-size:10px; font-weight:normal;">Pagina 1 de 13: <a href="#" style="color:#0066cc;">Proxima >></a></span>
+                </div>
+                <div class="games-browse">
+                    <strong>Navegar</strong><br>
+                    <a href="#">📊 Mais populares</a><br>
+                    <a href="#">⭐ Principais favoritos</a><br>
+                    <a href="#">🆕 Atualizado recentemente</a><br>
+                    <a href="#">🏠 Jogos em destaque</a>
+                </div>
+                <div class="games-grid" id="gamesGrid"></div>
+                <div class="pagination">
+                    <a href="#"><< Anterior</a> | 
+                    <strong>1</strong> 
+                    <a href="#">2</a> 
+                    <a href="#">3</a> 
+                    <a href="#">4</a> 
+                    <a href="#">5</a> ... 
+                    <a href="#">13</a> | 
+                    <a href="#">Proxima >></a>
+                </div>
+            </div>
+
+            <!-- PAGINA DO CATALOGO -->
+            <div id="page-catalog" class="page-section hidden">
+                <div class="section-header">
+                    Catalogo
+                    <span style="float:right; font-size:10px; font-weight:normal;">Pagina 1 de 11 <a href="#" style="color:#0066cc;">Proxima >></a></span>
+                </div>
+                <div style="margin-bottom:10px;">
+                    <strong>Compre itens do Ricbricl!</strong><br>
+                    <strong>Navegar:</strong> 
+                    <a href="#" style="color:#0066cc;">Principais favoritos</a> | 
+                    <a href="#" style="color:#0066cc;">Mais Vendidos</a> | 
+                    <a href="#" style="color:#0066cc;">Atualizado recentemente</a> | 
+                    <a href="#" style="color:#0066cc;">A venda</a> | 
+                    <a href="#" style="color:#0066cc;">Dominio publico</a>
+                </div>
+                <div style="margin-bottom:10px;">
+                    <strong>Categoria:</strong> 
+                    <a href="#" style="color:#0066cc;">Camisetas</a> | 
+                    <a href="#" style="color:#0066cc;">Camisas</a> | 
+                    <a href="#" style="color:#0066cc;">Calca</a> | 
+                    <a href="#" style="color:#cc0000; font-weight:bold;">Chapeus</a> | 
+                    <a href="#" style="color:#0066cc;">decalques</a> | 
+                    <a href="#" style="color:#0066cc;">Modelos</a> | 
+                    <a href="#" style="color:#0066cc;">Lugares</a>
+                </div>
+                <div style="margin-bottom:10px;">
+                    <strong>Tempo:</strong><br>
+                    <a href="#" style="color:#0066cc;">Dia passado</a><br>
+                    <a href="#" style="color:#cc0000; font-weight:bold;">Semana passada</a><br>
+                    <a href="#" style="color:#0066cc;">Mes passado</a><br>
+                    <a href="#" style="color:#0066cc;">De todos os tempos</a>
+                </div>
+                <div style="margin-bottom:10px; font-weight:bold;">Chapeus favoritos da semana passada</div>
+                <div class="catalog-grid" id="catalogGrid"></div>
+                <div class="pagination">
+                    <a href="#"><< Anterior</a> | 
+                    <strong>1</strong> 
+                    <a href="#">2</a> ... 
+                    <a href="#">11</a> | 
+                    <a href="#">Proxima >></a>
+                </div>
+            </div>
+
+            <!-- PAGINA DE PESSOAS -->
+            <div id="page-people" class="page-section hidden">
+                <div class="section-header">Pessoas</div>
+                <div class="search-box">
+                    <input type="text" placeholder="Procurar...">
+                    <button>Procurar</button>
+                </div>
+                <table class="people-table">
+                    <thead>
+                        <tr>
+                            <th>Avatar</th>
+                            <th>Nome</th>
+                            <th>Status</th>
+                            <th>Localizacao / Ultima vez visto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="peopleTableBody"></tbody>
+                </table>
+                <div class="pagination">
+                    <a href="#">1</a> 
+                    <a href="#">2</a> 
+                    <a href="#">3</a> 
+                    <a href="#">4</a> 
+                    <a href="#">5</a> 
+                    <a href="#">6</a> 
+                    <a href="#">7</a> 
+                    <a href="#">8</a> 
+                    <a href="#">9</a> 
+                    <a href="#">10</a> ...
+                </div>
+            </div>
+
+            <!-- PAGINA DE PERFIL -->
+            <div id="page-profile" class="page-section hidden">
+                <div id="profileContent">
+                    <div style="text-align:center; padding:40px;">
+                        <p style="font-size:14px; margin-bottom:10px;">Por favor, faca login para ver seu perfil.</p>
+                        <button class="btn-submit" onclick="showLoginModal()" style="width:auto; padding:8px 30px;">Fazer Login</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGINA DE DETALHE DO JOGO -->
+            <div id="page-game-detail" class="page-section hidden">
+                <div id="gameDetailContent"></div>
+            </div>
+
+            <!-- PAGINA DE BUILDERS CLUB -->
+            <div id="page-buildersclub" class="page-section hidden">
+                <div class="section-header">Clube dos Construtores - Melhore sua experiencia!</div>
+                <div style="display:flex; gap:10px; margin-top:15px;">
+                    <div style="flex:1; background:#fff; border:2px solid #FFA500; padding:10px; text-align:center;">
+                        <h3 style="color:#FFA500; margin-bottom:8px;">🏗️ Classico CC</h3>
+                        <div style="font-size:22px; font-weight:bold; color:#228B22; margin:8px 0;">R$ 19,90/mes</div>
+                        <ul style="text-align:left; font-size:10px; list-style:none; padding:0 10px;">
+                            <li>✅ 15 R$ diarios</li>
+                            <li>✅ Crie ate 10 lugares</li>
+                            <li>✅ Emblema CC</li>
+                            <li>✅ Itens exclusivos CC</li>
+                        </ul>
+                        <button class="btn-submit" style="margin-top:8px;">Fazer Upgrade</button>
+                    </div>
+                    <div style="flex:1; background:#fff; border:2px solid #4169E1; padding:10px; text-align:center;">
+                        <h3 style="color:#4169E1; margin-bottom:8px;">💎 Turbo CC</h3>
+                        <div style="font-size:22px; font-weight:bold; color:#228B22; margin:8px 0;">R$ 39,90/mes</div>
+                        <ul style="text-align:left; font-size:10px; list-style:none; padding:0 10px;">
+                            <li>✅ 35 R$ diarios</li>
+                            <li>✅ Crie ate 25 lugares</li>
+                            <li>✅ Emblema TCC</li>
+                            <li>✅ Itens CC + TCC</li>
+                        </ul>
+                        <button class="btn-submit" style="margin-top:8px;">Fazer Upgrade</button>
+                    </div>
+                    <div style="flex:1; background:#fff; border:2px solid #000; padding:10px; text-align:center;">
+                        <h3 style="color:#000; margin-bottom:8px;">👑 CC Outrageous</h3>
+                        <div style="font-size:22px; font-weight:bold; color:#228B22; margin:8px 0;">R$ 69,90/mes</div>
+                        <ul style="text-align:left; font-size:10px; list-style:none; padding:0 10px;">
+                            <li>✅ 60 R$ diarios</li>
+                            <li>✅ Crie ate 100 lugares</li>
+                            <li>✅ Emblema OCC</li>
+                            <li>✅ Todos os itens CC</li>
+                        </ul>
+                        <button class="btn-submit" style="margin-top:8px;">Fazer Upgrade</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGINA DO FORUM -->
+            <div id="page-forum" class="page-section hidden">
+                <div class="section-header">Forum Ricbricl</div>
+                <div style="background:#fff; border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+                    <div style="font-weight:bold; margin-bottom:8px; font-size:12px;">📌 Anuncios</div>
+                    <div class="comment-item">
+                        <span class="comment-author">Builderman</span>
+                        <span style="background:#FFA500; color:#fff; font-size:8px; padding:1px 4px; border-radius:2px;">CC</span>
+                        <span class="comment-date">- Postado ha 2 horas</span>
+                        <div style="margin-top:4px;">Bem-vindos ao novo Forum Ricbricl! Por favor, leiam as regras antes de postar.</div>
+                    </div>
+                    <div class="comment-item">
+                        <span class="comment-author">Telamon</span>
+                        <span style="background:#4169E1; color:#fff; font-size:8px; padding:1px 4px; border-radius:2px;">TCC</span>
+                        <span class="comment-date">- Postado ha 5 horas</span>
+                        <div style="margin-top:4px;">Nova atualizacao: Historico de versoes de lugares agora disponivel!</div>
+                    </div>
+                </div>
+                <div style="background:#fff; border:1px solid #ccc; padding:10px;">
+                    <div style="font-weight:bold; margin-bottom:8px; font-size:12px;">💬 Discussao Geral</div>
+                    <div class="comment-item">
+                        <span class="comment-author">RicbriclFan2008</span>
+                        <span class="comment-date">- Postado ha 10 minutos</span>
+                        <div style="margin-top:4px;">Alguem quer jogar Cruzamentos comigo?</div>
+                    </div>
+                    <div class="comment-item">
+                        <span class="comment-author">BrickMaster</span>
+                        <span style="background:#FFA500; color:#fff; font-size:8px; padding:1px 4px; border-radius:2px;">CC</span>
+                        <span class="comment-date">- Postado ha 1 hora</span>
+                        <div style="margin-top:4px;">Confiram meu novo lugar! E um castelo gigante.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGINA DE NOTICIAS -->
+            <div id="page-news" class="page-section hidden">
+                <div class="section-header">Noticias Ricbricl</div>
+                <div style="background:#fff; border:1px solid #ccc; padding:12px; margin-bottom:10px;">
+                    <h3 style="color:#0066cc; margin-bottom:5px; font-size:13px;">🎃 Evento no Local de Descanso de Yorick!</h3>
+                    <div style="color:#999; font-size:10px; margin-bottom:8px;">Postado em 11 de Outubro de 2008</div>
+                    <p style="font-size:11px;">A Caca ao Tesouro de Halloween 2 comecou! Encontre todos os tesouros escondidos no Local de Descanso de Yorick para ganhar premios exclusivos!</p>
+                </div>
+                <div style="background:#fff; border:1px solid #ccc; padding:12px; margin-bottom:10px;">
+                    <h3 style="color:#0066cc; margin-bottom:5px; font-size:13px;">💰 Sistema de Negociacao RicbriclEX Liberado!</h3>
+                    <div style="color:#999; font-size:10px; margin-bottom:8px;">Postado em 21 de Novembro de 2008</div>
+                    <p style="font-size:11px;">Negocie seus itens com outros jogadores usando nosso novo sistema RicbriclEX! Compre barato, venda caro!</p>
+                </div>
+                <div style="background:#fff; border:1px solid #ccc; padding:12px;">
+                    <h3 style="color:#0066cc; margin-bottom:5px; font-size:13px;">🎁 1 Milhao de Visitas!</h3>
+                    <div style="color:#999; font-size:10px; margin-bottom:8px;">Postado em 25 de Dezembro de 2008</div>
+                    <p style="font-size:11px;">Parabens ao Paintball Definitivo do Miked por alcancar 1.000.000 de visitas! Este e um marco historico para Ricbricl!</p>
+                </div>
+            </div>
+
+            <!-- PAGINA DE PAIS -->
+            <div id="page-parents" class="page-section hidden">
+                <div class="section-header">Pais Ricbricl</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                    <div style="background:#fff; border:1px solid #ccc; padding:12px;">
+                        <h3 style="color:#0066cc; margin-bottom:8px; font-size:12px;">📖 Guia Ricbricl</h3>
+                        <p style="font-size:11px;">Informacoes de base sobre o mundo do Ricbricl, especialmente para pais.</p>
+                    </div>
+                    <div style="background:#fff; border:1px solid #ccc; padding:12px;">
+                        <h3 style="color:#0066cc; margin-bottom:8px; font-size:12px;">🛡️ Mantendo as Criancas Seguras</h3>
+                        <p style="font-size:11px;">Informacoes sobre como manter seus filhos seguros enquanto estao online.</p>
+                    </div>
+                    <div style="background:#fff; border:1px solid #ccc; padding:12px;">
+                        <h3 style="color:#0066cc; margin-bottom:8px; font-size:12px;">❓ Perguntas Frequentes</h3>
+                        <p style="font-size:11px;">Perguntas e respostas especialmente para pais.</p>
+                    </div>
+                    <div style="background:#fff; border:1px solid #ccc; padding:12px;">
+                        <h3 style="color:#0066cc; margin-bottom:8px; font-size:12px;">🎓 Ricbricl e Aprendizado</h3>
+                        <p style="font-size:11px;">Criancas do Ricbricl aprendem engenharia, design, ciencia e programacao enquanto jogam.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SIDEBAR DIREITA -->
+        <div class="right-sidebar" id="rightSidebar">
+            <div class="side-box">
+                <div class="side-box-title">Propaganda</div>
+                <div class="side-box-body" style="text-align:center; padding:15px;">
+                    <div style="background:#ddd; border:1px solid #bbb; padding:25px; font-size:10px; color:#666;">
+                        [Espaco Publicitario]<br>
+                        160x600
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-box">
+                <div class="side-box-title">Em Construcao</div>
+                <div class="side-box-body" style="text-align:center;">
+                    <div style="font-size:30px; margin:10px 0;">🏗️</div>
+                    <p style="font-size:10px;">Volte em breve para novidades!</p>
+                </div>
+            </div>
+
+            <div class="side-box">
+                <div class="side-box-title">Estatisticas</div>
+                <div class="side-box-body">
+                    <div style="margin-bottom:5px;"><strong>Jogadores Online:</strong></div>
+                    <div style="color:#228B22; font-size:18px; font-weight:bold;" id="playersOnline">12.847</div>
+                    <div style="margin-top:10px; margin-bottom:5px;"><strong>Total de Usuarios:</strong></div>
+                    <div style="color:#0066cc; font-size:14px; font-weight:bold;">2.341.092</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#" onclick="showPage('home')">Inicio</a> | 
+            <a href="#" onclick="showPage('games')">Jogos</a> | 
+            <a href="#" onclick="showPage('catalog')">Catalogo</a> | 
+            <a href="#">Politica de Privacidade</a> | 
+            <a href="#">Contato</a> | 
+            <a href="#" onclick="showPage('parents')">Sobre Nos</a> | 
+            <a href="#">Trabalhe Conosco</a>
+        </div>
+        <div>
+            Ricbricl, "Brinquedo de Construcao Online", personagens, logotipos, nomes e todos os elementos relacionados sao marcas registradas da Ricbricl Corporation, ©2008. Patentes pendentes.<br>
+            A Ricbricl Corp. nao tem vinculo com Lego, MegaBloks, Bionicle, Pokemon, Nintendo, Lincoln Logs, Yu-Gi-Oh, K'nex, Tinkertoys, Erector Set ou Piratas do Caribe. AKrr!<br>
+            O uso deste site implica na sua aceitacao dos <a href="#">Termos e Condicoes</a>.
+        </div>
+    </div>
+
+</div>
+
+<!-- MODAL DE LOGIN -->
+<div class="modal-overlay" id="loginModal">
+    <div class="modal-box fade-in">
+        <div class="modal-title">🔒 Login de Membro</div>
+        <div id="loginAlert"></div>
+        <div class="form-row">
+            <label>Nome do Personagem:</label>
+            <input type="text" id="modalUsername" placeholder="Digite seu nome de usuario">
+        </div>
+        <div class="form-row">
+            <label>Senha:</label>
+            <input type="password" id="modalPassword" placeholder="Digite sua senha">
+        </div>
+        <div style="text-align:center;">
+            <button class="btn-submit" onclick="handleModalLogin()" style="width:100%;">Conecte-se</button>
+        </div>
+        <div class="modal-footer">
+            <p>Nao tem uma conta? <a onclick="showSignup()">Cadastre-se!</a></p>
+            <p><a onclick="closeModal()">Cancelar</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE CADASTRO -->
+<div class="modal-overlay" id="signupModal">
+    <div class="modal-box fade-in">
+        <div class="modal-title">📝 Cadastre-se no Ricbricl</div>
+        <div id="signupAlert"></div>
+        <div class="form-row">
+            <label>Escolha um Nome de Personagem:</label>
+            <input type="text" id="signupUsername" placeholder="3-20 caracteres, letras e numeros">
+        </div>
+        <div class="form-row">
+            <label>Senha:</label>
+            <input type="password" id="signupPassword" placeholder="No minimo 6 caracteres">
+        </div>
+        <div class="form-row">
+            <label>Confirmar Senha:</label>
+            <input type="password" id="signupPassword2" placeholder="Digite a senha novamente">
+        </div>
+        <div class="form-row">
+            <label>Email dos Pais (opcional):</label>
+            <input type="email" id="signupEmail" placeholder="Para recuperacao de conta">
+        </div>
+        <div style="text-align:center;">
+            <button class="btn-submit btn-green" onclick="handleSignup()" style="width:100%;">Criar Conta!</button>
+        </div>
+        <div class="modal-footer">
+            <p>Ja tem uma conta? <a onclick="showLoginModal()">Faca login!</a></p>
+            <p><a onclick="closeModal()">Cancelar</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ===== DADOS DO SISTEMA =====
+    const gamesData = [
+        { id: 1, name: "Magnata da Vila! [Celestial Vip's]", creator: "Soldierghetto", visits: 48010, updated: "ha 17 horas", players: 75, thumb: "🏘️", desc: "VIPs: Soldierghetto, BoltChidori, retreb, RuneBlox...", favorited: 2594 },
+        { id: 2, name: "Pista de obstaculos do AtomoBaby", creator: "AtomoBaby", visits: 590, updated: "ha 14 horas", players: 53, thumb: "🎢", desc: "Muito Divertido! PAREM DE ME MATAR!", favorited: 93 },
+        { id: 3, name: "Invada ou defenda um banco", creator: "AGORA!", visits: 367, updated: "ha 2 horas", players: 31, thumb: "🏦", desc: "AGORA! VIPs. leiam a descricao.", favorited: 368 },
+        { id: 4, name: "Sobreviva a uma queda de 99 metros para se tornar VIP!", creator: "Fichas", visits: 3814, updated: "ha 3 dias", players: 56, thumb: "🪂", desc: "Camiseta VIP. Criador: Fichas", favorited: 26 },
+        { id: 5, name: "The Sims Online! [Novo e animado]", creator: "V2_3", visits: 247, updated: "ha 14 horas", players: 45, thumb: "🎮", desc: "Novo e animado! Criador: V2_3", favorited: 93 },
+        { id: 6, name: "Destruir a Nave Espacial", creator: "Dawsonwell", visits: 376, updated: "ha 3 meses", players: 45, thumb: "🚀", desc: "Original. Atualizado ha 3 meses.", favorited: 37 },
+        { id: 7, name: "Plane Wars 2 Alpha 7.2", creator: "multichamp", visits: 3814, updated: "ha 13 horas", players: 35, thumb: "✈️", desc: "leia a descricao e o guia. Criador: multichamp", favorited: 207 },
+        { id: 8, name: "Build a glider 2 vip GLITCHED", creator: "blazingsonic", visits: 640, updated: "ha 9 horas", players: 37, thumb: "🪁", desc: "MENSAGENS PRIVADAS!!!! Criador: blazingsonic", favorited: 407 },
+        { id: 9, name: "O maior tubo de lavanderia do Roblox", creator: "jahhytur", visits: 467, updated: "ha 2 horas", players: 25, thumb: "🌀", desc: "Atualizado ha 2 horas. Criador: jahhytur", favorited: 37 },
+        { id: 10, name: "Voce conseguiria sobreviver a um tsunami de alta velocidade?", creator: "fighterpigg", visits: 511, updated: "ha 8 horas", players: 35, thumb: "🌊", desc: "Criador: fighterpigg. Atualizado ha 8 horas.", favorited: 47 },
+        { id: 11, name: "Carrinho de passeio 100% concluido!!!!!!!!", creator: "Shadowboy77", visits: 94, updated: "ha 1 mes", players: 27, thumb: "🛒", desc: "Criador: Shadowboy77. Atualizado ha 1 mes.", favorited: 1 },
+        { id: 12, name: "Zombie Ocean: Missao de resgate", creator: "SoulWaffleo", visits: 1723, updated: "ha 21 horas", players: 25, thumb: "🧟", desc: "Atualizado ha 21 horas. Criador: SoulWaffleo", favorited: 111 },
+        { id: 13, name: "Policia vs. Criminosos", creator: "fireproof", visits: 1501, updated: "ha 2 dias", players: 25, thumb: "👮", desc: "LEIA A DESCRICAO ATUALIZADA!!!! Criador: fireproof", favorited: 4 },
+        { id: 14, name: "Crie seu proprio planeta! VIP Fixo", creator: "rmonster", visits: 1601, updated: "ha 13 horas", players: 23, thumb: "🪐", desc: "Criador: rmonster. Atualizado ha 13 horas.", favorited: 130 },
+        { id: 15, name: "Destruction Derby-V.7.0", creator: "rmonster", visits: 3814, updated: "ha 8 horas", players: 25, thumb: "🏎️", desc: "Os carros mais incriveis do Roblox! Criador: rmonster", favorited: 600 }
+    ];
+
+    const catalogData = [
+        { id: 1, name: "Tons", creator: "Clockwork", updated: "ha 4 meses", sold: 0, favorited: 63, price: "R$ 12", icon: "🕶️" },
+        { id: 2, name: "O Affton Kisses", creator: "ROBLOX", updated: "ha 1 ano", sold: 0, favorited: 507, price: "R$ 12", icon: "🎭" },
+        { id: 3, name: "O Banho de Aco Azul", creator: "ROBLOX", updated: "ha 10 meses", sold: 0, favorited: 260, price: "R$ 12", icon: "🛁" },
+        { id: 4, name: "Oculos de visao noturna", creator: "ROBLOX", updated: "ha 8 meses", sold: 0, favorited: 221, price: "R$ 12", icon: "🥽" },
+        { id: 5, name: "Mascara Ninja Incrivel", creator: "ROBLOX", updated: "ha 3 meses", sold: 0, favorited: 206, price: "R$ 12", icon: "🥷" },
+        { id: 6, name: "Viseira ROBLOX", creator: "ROBLOX", updated: "ha 6 meses", sold: 4122, favorited: 200, price: "R$ 12", icon: "🪖" },
+        { id: 7, name: "Mascara Ninja das Sombras", creator: "ROBLOX", updated: "ha 7 meses", sold: 0, favorited: 178, price: "R$ 12", icon: "🎭" },
+        { id: 8, name: "Adereco de palco", creator: "ROBLOX", updated: "ha 1 ano", sold: 0, favorited: 157, price: "R$ 12", icon: "🎪" },
+        { id: 9, name: "Camera de seguranca", creator: "ROBLOX", updated: "ha 5 meses", sold: 0, favorited: 151, price: "R$ 12", icon: "📹" },
+        { id: 10, name: "Fedora Sparkle Time", creator: "ROBLOX", updated: "ha 3 meses", sold: 0, favorited: 142, price: "R$ 12", icon: "🎩" },
+        { id: 11, name: "Capacete de seguranca do Builders Club", creator: "ROBLOX", updated: "ha 1 ano", sold: 0, favorited: 115, price: "R$ 12", icon: "⛑️" },
+        { id: 12, name: "A Coroa dos Senhores da Guerra", creator: "ROBLOX", updated: "ha 2 meses", sold: 0, favorited: 113, price: "R$ 119", icon: "👑" },
+        { id: 13, name: "Capacete de astronauta", creator: "ROBLOX", updated: "ha 6 meses", sold: 0, favorited: 107, price: "R$ 25", icon: "🚀" },
+        { id: 14, name: "Capacete de futebol americano", creator: "ROBLOX", updated: "ha 4 meses", sold: 0, favorited: 104, price: "R$ 12", icon: "🏈" },
+        { id: 15, name: "A Coroa de Gelo", creator: "ROBLOX", updated: "ha 7 meses", sold: 0, favorited: 102, price: "R$ 218", icon: "👑" },
+        { id: 16, name: "Cartola com faixa vermelha", creator: "ROBLOX", updated: "ha 1 semana", sold: 0, favorited: 102, price: "R$ 12", icon: "🎩" },
+        { id: 17, name: "Golf de Gloria", creator: "ROBLOX", updated: "ha 10 meses", sold: 0, favorited: 98, price: "R$ 950", icon: "🏌️" },
+        { id: 18, name: "Elmo do Fogo Secreto", creator: "ROBLOX", updated: "ha 8 meses", sold: 0, favorited: 98, price: "R$ 12", icon: "🔥" },
+        { id: 19, name: "Elmo Viking de Aco Azul da Foliagem Infinita", creator: "ROBLOX", updated: "ha 5 meses", sold: 0, favorited: 98, price: "R$ 12", icon: "🪖" },
+        { id: 20, name: "Caboclo", creator: "ROBLOX", updated: "ha 1 ano", sold: 350, favorited: 97, price: "R$ 12", icon: "🤠" }
+    ];
+
+    const usersData = [
+        { name: "mexicanfajita97", status: "Online", location: "Voce consegue escapar da prisao???", bio: "" },
+        { name: "Esquadrao XX", status: "Online", location: "Site", bio: "" },
+        { name: "bigshotdoggz", status: "Online", location: "Cita Pikmin VS Humanos e Zumbis!", bio: "" },
+        { name: "XxMasterHandxX", status: "Online", location: "Script Builder v2.92.156", bio: "Eu pareco legal... ouvindo uma musica emo chamada 'Breaking The Habit' (WAFFLE ftw!). Eu eu tenho tres formas divinas. Deus das Trevas. Deus dos Anjos das Trevas e Deus Sagrado... minhas formas angelicais sao Anjo das Trevas e Anjo Sagrado. Minha garota = BityBityx *morde uma maca*. Eu sou uma Bloxer nivel 28 e lutadora de fantasia (pessoa que luta como em um jogo de fantasia). Exemplo: *Transforma-se na Forma de Deus Sagrado*. (((...Voce poderia me chamar de XM, por favor?...))) Role-Play aleatorio-Eu: o_o... o que VOCE esta chamando? Pessoas aleatorias: VOCE QUER DIZER O QUE VOCE ESTA OLHANDO?!?!? Eu: o_o... AH. E ISSO AI, IRMAO!" },
+        { name: "Alec322", status: "Online", location: "derby de demolicao", bio: "Ola, sou o Alec322. Sou bom com essas armas, veja quantas eliminacoes eu ja fiz. Meu super-heroi favorito e o Homem-Aranha. Aceito todos os pedidos de amizade. Sou muito mais legal que os outros. A unica vez que participo de grupos de amigos e so para me divertir. Meus lutadores favoritos sao Batista, John Cena e CM Punk." },
+        { name: "zero182", status: "Online", location: "Site", bio: "" },
+        { name: "supervegito1000", status: "Online", location: "O melhor Paintball CTF", bio: "" },
+        { name: "BrigadierDonut", status: "Online", location: "Site", bio: "Ola pessoal, sou o BrigadierDonut, ou simplesmente Brett. Gosto de Roblox, e divertido. Meu mapa favorito e Sword Fight on the Heights IV. Meus melhores amigos sao o Chewy33, um criador de mapas incrivel (pecam ajuda a ele), o JTKilla, um cidadao incrivel e muito legal, e o Papasurf, um programador bacana (pecam ajuda a ele com programacao). Estou juntando dinheiro para comprar a cartola com faixa verde, entao se voces quiserem doar, por favor, me ajudem. Obrigado. Nivel 49 na calculadora Clockworks." },
+        { name: "maxim2209", status: "Online", location: "Site", bio: "" },
+        { name: "David188120", status: "Online", location: "Site", bio: "Ola, com quem eu me pareco? Me mande uma mensagem privada." }
+    ];
+
+    let currentUser = null;
+    let users = JSON.parse(localStorage.getItem('ricbricl_users')) || {};
+    let currentPage = 'home';
+
+    // ===== INICIALIZACAO =====
+    document.addEventListener('DOMContentLoaded', function() {
+        renderGames();
+        renderCatalog();
+        renderPeople();
+        updatePlayersOnline();
+        setInterval(updatePlayersOnline, 5000);
+
+        const savedUser = localStorage.getItem('ricbricl_current_user');
+        if (savedUser) {
+            currentUser = JSON.parse(savedUser);
+            updateUIForUser();
+        }
+    });
+
+    // ===== NAVEGACAO =====
+    function showPage(page) {
+        document.querySelectorAll('.page-section').forEach(el => el.classList.add('hidden'));
+        const target = document.getElementById('page-' + page);
+        if (target) {
+            target.classList.remove('hidden');
+            currentPage = page;
+        }
+
+        document.querySelectorAll('.navbar-inner a').forEach(el => el.classList.remove('active'));
+
+        if (page === 'game-detail') {
+            document.getElementById('leftSidebar').classList.add('hidden');
+            document.getElementById('rightSidebar').classList.add('hidden');
+        } else {
+            document.getElementById('leftSidebar').classList.remove('hidden');
+            document.getElementById('rightSidebar').classList.remove('hidden');
+        }
+    }
+
+    // ===== RENDERIZACAO =====
+    function renderGames() {
+        const grid = document.getElementById('gamesGrid');
+        if (!grid) return;
+
+        let html = '';
+        gamesData.forEach(game => {
+            html += `
+                <div class="game-card">
+                    <div class="game-thumb">${game.thumb}</div>
+                    <div class="game-title" onclick="showGameDetail(${game.id})">${game.name}</div>
+                    <div class="game-info-line">
+                        <span class="label">Criador:</span> <span class="creator">${game.creator}</span><br>
+                        <span class="label">Atualizado:</span> ${game.updated}<br>
+                        <span class="label">Favoritado:</span> <span class="value">${game.favorited} vezes</span><br>
+                        <span class="label">Jogado:</span> <span class="value">${game.visits} vezes</span>
+                    </div>
+                    <div class="players-online">${game.players} jogadores online</div>
+                </div>
+            `;
+        });
+        grid.innerHTML = html;
+    }
+
+    function renderCatalog() {
+        const grid = document.getElementById('catalogGrid');
+        if (!grid) return;
+
+        let html = '';
+        catalogData.forEach(item => {
+            html += `
+                <div class="catalog-item">
+                    <div class="catalog-thumb">${item.icon}</div>
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-creator">Criador: ${item.creator}</div>
+                    <div class="item-stats">Atualizado: ${item.updated}</div>
+                    <div class="item-stats">Numero de unidades vendidas: ${item.sold}</div>
+                    <div class="item-stats">Favoritado: ${item.favorited} vezes</div>
+                    <div class="item-price">${item.price}</div>
+                </div>
+            `;
+        });
+        grid.innerHTML = html;
+    }
+
+    function renderPeople() {
+        const tbody = document.getElementById('peopleTableBody');
+        if (!tbody) return;
+
+        let html = '';
+        usersData.forEach(user => {
+            html += `
+                <tr>
+                    <td><div class="people-avatar">👤</div></td>
+                    <td>
+                        <div class="people-name">${user.name}</div>
+                        <div class="people-bio">${user.bio}</div>
+                    </td>
+                    <td><span class="people-status">${user.status}</span></td>
+                    <td><span class="people-location">${user.location}</span></td>
+                </tr>
+            `;
+        });
+        tbody.innerHTML = html;
+    }
+
+    function showGameDetail(gameId) {
+        const game = gamesData.find(g => g.id === gameId);
+        if (!game) return;
+
+        const content = document.getElementById('gameDetailContent');
+        content.innerHTML = `
+            <div class="game-detail-layout">
+                <div class="game-detail-left">
+                    <div class="game-big-thumb">${game.thumb}</div>
+                    <div style="display:flex; gap:10px; margin-bottom:10px;">
+                        <button class="play-btn-big" onclick="playGame('${game.name}')">▶ Play</button>
+                        <button class="visit-solo-btn">Visite Solo</button>
+                    </div>
+                    <div class="game-info-panel">
+                        <h3>Lugar Ricbricl</h3>
+                        <div class="info-row"><span class="label">Criador:</span> <span class="value">${game.creator}</span></div>
+                        <div class="info-row"><span class="label">Atualizado:</span> ${game.updated}</div>
+                        <div class="info-row"><span class="label">Favoritado:</span> ${game.favorited} vezes</div>
+                        <div class="info-row"><span class="label">Visitado:</span> ${game.visits} vezes</div>
+                    </div>
+                    <div class="description-box">
+                        <h4>Descricao:</h4>
+                        <p>${game.desc}</p>
+                    </div>
+                    <div class="comments-section">
+                        <div class="comments-header">Comentario</div>
+                        <div class="comment-item">
+                            <span class="comment-author">RicbriclFan2008</span>
+                            <span class="comment-date">- ha 2 horas</span>
+                            <div style="margin-top:4px;">Este jogo e incrivel! ⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <div class="comment-item">
+                            <span class="comment-author">BrickMaster</span>
+                            <span style="background:#FFA500; color:#fff; font-size:8px; padding:1px 4px; border-radius:2px;">CC</span>
+                            <span class="comment-date">- ha 5 horas</span>
+                            <div style="margin-top:4px;">Muito divertido, mas dificil de ganhar!</div>
+                        </div>
+                    </div>
+                    <div class="server-list">
+                        <div style="font-weight:bold; margin-bottom:5px;">Jogos</div>
+                        <div class="server-row">
+                            <span>4 de 6 jogadores no maximo</span>
+                            <div class="server-players">
+                                <div class="mini-avatar">👤</div><div class="mini-avatar">👤</div><div class="mini-avatar">👤</div><div class="mini-avatar">👤</div>
+                            </div>
+                        </div>
+                        <div class="server-row">
+                            <span>5 de 8 jogadores no maximo</span>
+                            <div class="server-players">
+                                <div class="mini-avatar">👤</div><div class="mini-avatar">👤</div><div class="mini-avatar">👤</div><div class="mini-avatar">👤</div><div class="mini-avatar">👤</div>
+                            </div>
+                        </div>
+                        <div class="server-row">
+                            <span>5 de 8 jogadores no maximo</span>
+                            <div class="server-players">
+                                <div class="mini-avatar">👤</div><div class="mini-avatar">👤</div><div class="mini-avatar">👤</div><div class="mini-avatar">👤</div><div class="mini-avatar">👤</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-detail-right">
+                    <div class="side-box">
+                        <div class="side-box-title">Estatisticas do Jogo</div>
+                        <div class="side-box-body">
+                            <div style="margin-bottom:8px;"><strong>Jogando Agora:</strong><br><span style="font-size:18px; color:#228B22;">${game.players}</span></div>
+                            <div style="margin-bottom:8px;"><strong>Favoritado:</strong><br>${game.favorited} vezes</div>
+                            <div><strong>Criado:</strong><br>Janeiro de 2008</div>
+                        </div>
+                    </div>
+                    <div class="side-box">
+                        <div class="side-box-title">Denunciar abuso</div>
+                        <div class="side-box-body" style="text-align:center;">
+                            <div style="font-size:20px; margin:5px 0;">⚠️</div>
+                            <div style="font-size:10px;"><a href="#">Denunciar abuso</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        showPage('game-detail');
+    }
+
+    // ===== LOGIN =====
+    function handleBannerLogin() {
+        const username = document.getElementById('bannerUsername').value.trim();
+        const password = document.getElementById('bannerPassword').value;
+
+        if (!username || !password) {
+            alert('Por favor, digite nome de usuario e senha!');
+            return;
+        }
+
+        if (users[username] && users[username].password === password) {
+            currentUser = { username: username, robux: users[username].robux || 0, tix: users[username].tix || 0 };
+            localStorage.setItem('ricbricl_current_user', JSON.stringify(currentUser));
+            updateUIForUser();
+        } else {
+            alert('Nome de usuario ou senha invalidos!');
+        }
+    }
+
+    function handleSidebarLogin() {
+        const username = document.getElementById('sidebarUsername').value.trim();
+        const password = document.getElementById('sidebarPassword').value;
+
+        if (!username || !password) {
+            alert('Por favor, digite nome de usuario e senha!');
+            return;
+        }
+
+        if (users[username] && users[username].password === password) {
+            currentUser = { username: username, robux: users[username].robux || 0, tix: users[username].tix || 0 };
+            localStorage.setItem('ricbricl_current_user', JSON.stringify(currentUser));
+            updateUIForUser();
+        } else {
+            alert('Nome de usuario ou senha invalidos!');
+        }
+    }
+
+    function handleModalLogin() {
+        const username = document.getElementById('modalUsername').value.trim();
+        const password = document.getElementById('modalPassword').value;
+        const alertDiv = document.getElementById('loginAlert');
+
+        if (!username || !password) {
+            alertDiv.innerHTML = '<div class="alert-box alert-error">Por favor, digite nome de usuario e senha!</div>';
+            return;
+        }
+
+        if (users[username] && users[username].password === password) {
+            currentUser = { username: username, robux: users[username].robux || 0, tix: users[username].tix || 0 };
+            localStorage.setItem('ricbricl_current_user', JSON.stringify(currentUser));
+            updateUIForUser();
+            closeModal();
+        } else {
+            alertDiv.innerHTML = '<div class="alert-box alert-error">Nome de usuario ou senha invalidos!</div>';
+        }
+    }
+
+    function handleSignup() {
+        const username = document.getElementById('signupUsername').value.trim();
+        const password = document.getElementById('signupPassword').value;
+        const password2 = document.getElementById('signupPassword2').value;
+        const alertDiv = document.getElementById('signupAlert');
+
+        if (!username || !password) {
+            alertDiv.innerHTML = '<div class="alert-box alert-error">Por favor, preencha todos os campos obrigatorios!</div>';
+            return;
+        }
+
+        if (username.length < 3 || username.length > 20) {
+            alertDiv.innerHTML = '<div class="alert-box alert-error">O nome deve ter entre 3 e 20 caracteres!</div>';
+            return;
+        }
+
+        if (password.length < 6) {
+            alertDiv.innerHTML = '<div class="alert-box alert-error">A senha deve ter no minimo 6 caracteres!</div>';
+            return;
+        }
+
+        if (password !== password2) {
+            alertDiv.innerHTML = '<div class="alert-box alert-error">As senhas nao coincidem!</div>';
+            return;
+        }
+
+        if (users[username]) {
+            alertDiv.innerHTML = '<div class="alert-box alert-error">Este nome de usuario ja esta em uso!</div>';
+            return;
+        }
+
+        users[username] = {
+            password: password,
+            robux: 0,
+            tix: 10,
+            created: new Date().toISOString()
+        };
+        localStorage.setItem('ricbricl_users', JSON.stringify(users));
+
+        currentUser = { username: username, robux: 0, tix: 10 };
+        localStorage.setItem('ricbricl_current_user', JSON.stringify(currentUser));
+
+        alertDiv.innerHTML = '<div class="alert-box alert-success">Conta criada com sucesso! Entrando...</div>';
+        setTimeout(() => {
+            updateUIForUser();
+            closeModal();
+            showPage('profile');
+        }, 1000);
+    }
+
+    function handleLogout() {
+        currentUser = null;
+        localStorage.removeItem('ricbricl_current_user');
+        document.getElementById('loginBannerBox').style.display = 'block';
+        document.getElementById('userBar').classList.remove('active');
+        document.getElementById('sidebarLogin').style.display = 'block';
+        document.getElementById('sidebarAvatar').style.display = 'none';
+        document.getElementById('bannerUsername').value = '';
+        document.getElementById('bannerPassword').value = '';
+
+        document.getElementById('profileContent').innerHTML = `
+            <div style="text-align:center; padding:40px;">
+                <p style="font-size:14px; margin-bottom:10px;">Por favor, faca login para ver seu perfil.</p>
+                <button class="btn-submit" onclick="showLoginModal()" style="width:auto; padding:8px 30px;">Fazer Login</button>
+            </div>
+        `;
+    }
+
+    function updateUIForUser() {
+        if (!currentUser) return;
+
+        document.getElementById('loginBannerBox').style.display = 'none';
+        document.getElementById('userBar').classList.add('active');
+        document.getElementById('userNameDisplay').textContent = currentUser.username;
+        document.getElementById('robuxDisplay').textContent = currentUser.robux;
+        document.getElementById('tixDisplay').textContent = currentUser.tix;
+
+        document.getElementById('sidebarLogin').style.display = 'none';
+        document.getElementById('sidebarAvatar').style.display = 'block';
+        document.getElementById('sidebarUserName').textContent = currentUser.username;
+
+        document.getElementById('profileContent').innerHTML = `
+            <div class="profile-layout">
+                <div class="profile-left">
+                    <div class="profile-avatar-big">👤</div>
+                    <div class="profile-name">${currentUser.username}</div>
+                    <div class="profile-status">[ Online ]</div>
+                    <div class="report-link"><a href="#">Denunciar abuso</a></div>
+
+                    <div class="badges-box">
+                        <div class="badges-title">Distintivos</div>
+                        <div class="badges-grid">
+                            <div class="badge-item"><div class="badge-icon">🏠</div><div>Administrador</div></div>
+                            <div class="badge-item"><div class="badge-icon">💎</div><div>Amizade</div></div>
+                            <div class="badge-item"><div class="badge-icon">⭐</div><div>Combate</div></div>
+                            <div class="badge-item"><div class="badge-icon">🏠</div><div>Moradia</div></div>
+                            <div class="badge-item"><div class="badge-icon">🏗️</div><div>Tijolo</div></div>
+                            <div class="badge-item"><div class="badge-icon">🎖️</div><div>Veterano</div></div>
+                            <div class="badge-item"><div class="badge-icon">⚔️</div><div>Guerreiro</div></div>
+                            <div class="badge-item"><div class="badge-icon">🏗️</div><div>Clube dos Construtores</div></div>
+                        </div>
+                    </div>
+
+                    <div class="stats-box">
+                        <div class="stats-title">Estatisticas</div>
+                        <div class="stats-body">
+                            <div><strong>Amigos:</strong> 0</div>
+                            <div><strong>Postagens no forum:</strong> 0</div>
+                            <div><strong>Visualizacoes do perfil:</strong> 0</div>
+                            <div><strong>Visitas a locais:</strong> 0</div>
+                            <div><strong>Knockouts:</strong> 0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-center">
+                    <div class="profile-bio-box">
+                        <h3>Sobre Mim</h3>
+                        <p>Bem-vindo ao meu perfil! Eu adoro construir no Ricbricl!</p>
+                    </div>
+
+                    <div class="showcase-box">
+                        <div class="showcase-title">Vitrine</div>
+                        <div class="showcase-body">
+                            <div class="showcase-place">
+                                <div class="showcase-thumb">🏠</div>
+                                <div class="showcase-info">
+                                    <h4>Hotel Builderman's</h4>
+                                    <div>Recente remodelado. Confira!</div>
+                                    <div style="margin-top:5px;"><button class="visit-solo-btn">Visite online</button> <button class="visit-solo-btn">Visite Solo</button></div>
+                                    <div style="margin-top:5px; font-size:9px;">Visitado 130.205 vezes (6.586 na ultima semana)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="showcase-box">
+                        <div class="showcase-title">Meus Lugares</div>
+                        <div class="showcase-body">
+                            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
+                                <div style="text-align:center;"><div class="showcase-thumb" style="width:100%;height:80px;">🏠</div><div style="font-size:9px; margin-top:2px;">Tutorial de Ricbricl</div></div>
+                                <div style="text-align:center;"><div class="showcase-thumb" style="width:100%;height:80px;">🏙️</div><div style="font-size:9px; margin-top:2px;">Cidade Tutorial</div></div>
+                                <div style="text-align:center;"><div class="showcase-thumb" style="width:100%;height:80px;">📚</div><div style="font-size:9px; margin-top:2px;">Tutorial para todos</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-right">
+                    <div class="friends-box">
+                        <div class="friends-title">Amigos do ${currentUser.username} <a href="#" style="color:#ffff00; font-size:9px;">Ver tudo</a></div>
+                        <div class="friends-grid">
+                            <div class="friend-item"><div class="friend-avatar">👤</div><div class="friend-name">amigo1</div></div>
+                            <div class="friend-item"><div class="friend-avatar">👤</div><div class="friend-name">amigo2</div></div>
+                            <div class="friend-item"><div class="friend-avatar">👤</div><div class="friend-name">amigo3</div></div>
+                            <div class="friend-item"><div class="friend-avatar">👤</div><div class="friend-name">amigo4</div></div>
+                            <div class="friend-item"><div class="friend-avatar">👤</div><div class="friend-name">amigo5</div></div>
+                            <div class="friend-item"><div class="friend-avatar">👤</div><div class="friend-name">amigo6</div></div>
+                        </div>
+                    </div>
+
+                    <div class="side-box" style="margin-top:10px;">
+                        <div class="side-box-title">Itens</div>
+                        <div class="side-box-body">
+                            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:5px;">
+                                <div style="text-align:center;"><div style="width:40px;height:40px;background:#e0e0e0;border:1px solid #ccc;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:20px;">👑</div><div style="font-size:8px;">A Estrela do Vazio</div></div>
+                                <div style="text-align:center;"><div style="width:40px;height:40px;background:#e0e0e0;border:1px solid #ccc;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:20px;">👂</div><div style="font-size:8px;">Orelhas de Coelho</div></div>
+                                <div style="text-align:center;"><div style="width:40px;height:40px;background:#e0e0e0;border:1px solid #ccc;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:20px;">🪖</div><div style="font-size:8px;">Elmo Viking</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // ===== MODAIS =====
+    function showLoginModal() {
+        document.getElementById('loginModal').classList.add('active');
+        document.getElementById('signupModal').classList.remove('active');
+        document.getElementById('loginAlert').innerHTML = '';
+    }
+
+    function showSignup() {
+        document.getElementById('signupModal').classList.add('active');
+        document.getElementById('loginModal').classList.remove('active');
+        document.getElementById('signupAlert').innerHTML = '';
+    }
+
+    function closeModal() {
+        document.getElementById('loginModal').classList.remove('active');
+        document.getElementById('signupModal').classList.remove('active');
+    }
+
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    });
+
+    // ===== UTILIDADES =====
+    function playNow() {
+        alert('🎮 Iniciando Ricbricl Player...
+
+(Em 2008, isso baixaria o cliente do jogo!)');
+    }
+
+    function playGame(name) {
+        alert(`🎮 Carregando ${name}...
+
+Conectando aos servidores Ricbricl...`);
+    }
+
+    function updatePlayersOnline() {
+        const el = document.getElementById('playersOnline');
+        if (el) {
+            const base = 12000;
+            const variation = Math.floor(Math.random() * 2000);
+            el.textContent = (base + variation).toLocaleString();
+        }
+    }
+
+    // Enter para login
+    document.getElementById('bannerPassword')?.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') handleBannerLogin();
+    });
+    document.getElementById('sidebarPassword')?.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') handleSidebarLogin();
+    });
+</script>
+
+</body>
+</html>
