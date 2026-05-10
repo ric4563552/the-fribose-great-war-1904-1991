@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>União C.W.R.B. — História da Grande Guerra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F0D878;
+            --gold-dark: #B8941F;
+            --crimson: #8B0000;
+            --crimson-light: #A52A2A;
+            --dark: #0D0D0D;
+            --dark-light: #1A1A1A;
+            --dark-card: #141414;
+            --text: #E8E8E8;
+            --text-dim: #888888;
+            --border: #2A2A2A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(13,13,13,0.7) 0%, rgba(13,13,13,0.95) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%230D0D0D"/><g opacity="0.15"><path d="M0,400 Q300,200 600,400 T1200,400" stroke="%23D4AF37" fill="none" stroke-width="2"/><path d="M0,450 Q300,250 600,450 T1200,450" stroke="%238B0000" fill="none" stroke-width="2"/><path d="M0,350 Q300,150 600,350 T1200,350" stroke="%23D4AF37" fill="none" stroke-width="1.5"/></g><circle cx="200" cy="200" r="1" fill="%23D4AF37" opacity="0.5"/><circle cx="800" cy="150" r="1.5" fill="%23D4AF37" opacity="0.3"/><circle cx="500" cy="300" r="1" fill="%23fff" opacity="0.4"/><circle cx="1000" cy="250" r="1" fill="%23D4AF37" opacity="0.5"/><circle cx="300" cy="100" r="1.2" fill="%23fff" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, var(--dark) 70%);
+            pointer-events: none;
+        }
+
+        .hero-content { position: relative; z-index: 2; max-width: 900px; }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--gold-dark);
+            color: var(--gold);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            color: var(--gold-light);
+            text-shadow: 0 0 40px rgba(212,175,55,0.3);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.3s both;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--text-dim);
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .stat { text-align: center; }
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        .scroll-indicator svg {
+            width: 30px; height: 30px;
+            stroke: var(--gold-dark);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* NAV */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(13,13,13,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .nav-inner::-webkit-scrollbar { display: none; }
+        .nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .nav a:hover, .nav a.active {
+            color: var(--gold);
+            background: rgba(212,175,55,0.1);
+        }
+
+        /* SECTIONS */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+        .section-subtitle {
+            color: var(--text-dim);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        /* CARDS */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+        .card:hover {
+            border-color: var(--gold-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .card:hover::before { transform: scaleX(1); }
+        .card-icon {
+            width: 50px; height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold-light);
+            margin-bottom: 0.75rem;
+        }
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tag-gold { background: rgba(212,175,55,0.15); color: var(--gold); border: 1px solid rgba(212,175,55,0.3); }
+        .tag-crimson { background: rgba(139,0,0,0.15); color: var(--crimson-light); border: 1px solid rgba(139,0,0,0.3); }
+        .tag-blue { background: rgba(30,58,95,0.3); color: #6B9BD1; border: 1px solid rgba(30,58,95,0.5); }
+        .tag-green { background: rgba(27,77,62,0.3); color: #5AAF8F; border: 1px solid rgba(27,77,62,0.5); }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold), var(--crimson), var(--gold));
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--dark-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.4rem;
+            top: 2.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 3px solid var(--dark);
+            box-shadow: 0 0 0 3px var(--gold-dark);
+        }
+        .timeline-era {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-date {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid var(--gold-dark);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .timeline-item p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+        .timeline-item ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+        .timeline-item li {
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .timeline-item li strong { color: var(--gold-light); }
+
+        /* NATIONS */
+        .nation-card {
+            background: var(--dark-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+        .nation-card:hover {
+            border-color: var(--gold-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+        .nation-header {
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .nation-header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.1;
+        }
+        .nation-banimento .nation-header { background: linear-gradient(135deg, #1a0a0a, #2d1515); }
+        .nation-banimento .nation-header::after { background: radial-gradient(circle at 80% 20%, var(--gold), transparent); }
+        .nation-caduziano .nation-header { background: linear-gradient(135deg, #0a1a2e, #152d4a); }
+        .nation-caduziano .nation-header::after { background: radial-gradient(circle at 80% 20%, #4a90d9, transparent); }
+        .nation-ricardiana .nation-header { background: linear-gradient(135deg, #0a1a0e, #152d1f); }
+        .nation-ricardiana .nation-header::after { background: radial-gradient(circle at 80% 20%, #5AAF8F, transparent); }
+        .nation-wallacy .nation-header { background: linear-gradient(135deg, #1a1a0a, #2d2d15); }
+        .nation-wallacy .nation-header::after { background: radial-gradient(circle at 80% 20%, #D4AF37, transparent); }
+        .nation-fribosento .nation-header { background: linear-gradient(135deg, #1a0a0a, #2d1515); }
+        .nation-fribosento .nation-header::after { background: radial-gradient(circle at 80% 20%, #8B0000, transparent); }
+        .nation-materia .nation-header { background: linear-gradient(135deg, #1a1a1a, #2d2d2d); }
+        .nation-materia .nation-header::after { background: radial-gradient(circle at 80% 20%, #888, transparent); }
+        .nation-dv .nation-header { background: linear-gradient(135deg, #0a0a1a, #15152d); }
+        .nation-dv .nation-header::after { background: radial-gradient(circle at 80% 20%, #6B4EE6, transparent); }
+
+        .nation-rank {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .nation-banimento .nation-rank { background: var(--gold); color: var(--dark); }
+        .nation-caduziano .nation-rank { background: #4a90d9; color: #fff; }
+        .nation-ricardiana .nation-rank { background: #5AAF8F; color: #fff; }
+        .nation-wallacy .nation-rank { background: #D4AF37; color: var(--dark); }
+        .nation-fribosento .nation-rank { background: var(--crimson); color: #fff; }
+        .nation-materia .nation-rank { background: #888; color: var(--dark); }
+        .nation-dv .nation-rank { background: #6B4EE6; color: #fff; }
+
+        .nation-header h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+        .nation-header .nation-sub {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.25rem;
+            position: relative;
+            z-index: 2;
+        }
+        .nation-body { padding: 2rem; }
+        .nation-body h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        .nation-body h4:first-child { margin-top: 0; }
+        .nation-body p, .nation-body li {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .nation-body ul { padding-left: 1.2rem; }
+        .nation-body li { margin-bottom: 0.3rem; }
+        .nation-body strong { color: var(--text); }
+        .nation-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .nation-stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+        }
+        .nation-stat-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+        .nation-stat-label {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
+        }
+
+        /* RANKING TABLE */
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        .ranking-table th {
+            text-align: left;
+            padding: 1rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            border-bottom: 2px solid var(--border);
+        }
+        .ranking-table td {
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        .ranking-table tr:hover td { background: rgba(212,175,55,0.03); }
+        .rank-pos {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .rank-1 { background: rgba(212,175,55,0.2); color: var(--gold); border: 1px solid var(--gold-dark); }
+        .rank-2 { background: rgba(169,169,169,0.15); color: #C0C0C0; border: 1px solid rgba(169,169,169,0.3); }
+        .rank-3 { background: rgba(205,127,50,0.15); color: #CD7F32; border: 1px solid rgba(205,127,50,0.3); }
+        .rank-other { background: rgba(255,255,255,0.05); color: var(--text-dim); border: 1px solid var(--border); }
+        .trend-up { color: #5AAF8F; }
+        .trend-down { color: var(--crimson-light); }
+        .trend-same { color: var(--text-dim); }
+
+        /* TECH */
+        .tech-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gold);
+        }
+        .tech-year {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .tech-title {
+            font-size: 1.1rem;
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .tech-desc {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .tech-inventor {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.4rem 1rem;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid var(--gold-dark);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--gold);
+        }
+
+        /* ECONOMY */
+        .economy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .economy-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .economy-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .economy-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            margin-bottom: 0.75rem;
+        }
+        .economy-card p {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* TRADE */
+        .trade-flow {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .trade-flow h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .trade-partners {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .trade-partner {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+        .trade-arrow { color: var(--gold); font-size: 1.2rem; }
+
+        /* BATTLES */
+        .battle-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .battle-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--crimson);
+        }
+        .battle-card.divine::before { background: var(--gold); }
+        .battle-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .battle-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--text);
+        }
+        .battle-divine .battle-title { color: var(--gold-light); }
+        .battle-year {
+            padding: 0.3rem 1rem;
+            background: rgba(139,0,0,0.15);
+            border: 1px solid rgba(139,0,0,0.3);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--crimson-light);
+        }
+        .battle-divine .battle-year {
+            background: rgba(212,175,55,0.15);
+            border-color: var(--gold-dark);
+            color: var(--gold);
+        }
+        .battle-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .battle-detail {
+            padding: 1rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+        }
+        .battle-detail-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            margin-bottom: 0.25rem;
+        }
+        .battle-detail-value {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+        .battle-desc {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-top: 1rem;
+        }
+        .battle-desc strong { color: var(--text); }
+        .battle-divine .battle-desc strong { color: var(--gold-light); }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border);
+            background: var(--dark-light);
+        }
+        .footer-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold-dark);
+            margin-bottom: 0.5rem;
+        }
+        .footer-sub {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* DIVINE */
+        .divine-glow { position: relative; }
+        .divine-glow::after {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, var(--gold), transparent, var(--gold));
+            border-radius: 14px;
+            z-index: -1;
+            opacity: 0.3;
+            animation: divinePulse 3s infinite;
+        }
+        @keyframes divinePulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
+        }
+
+        /* QUOTE */
+        .quote-block {
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            background: rgba(212,175,55,0.05);
+            border-radius: 0 8px 8px 0;
+        }
+        .quote-block p {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            font-style: italic;
+            line-height: 1.8;
+        }
+        .quote-block cite {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-style: normal;
+        }
+
+        /* COMPARISON */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .compare-table th, .compare-table td {
+            padding: 0.8rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .compare-table th {
+            background: rgba(212,175,55,0.1);
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .compare-table td {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+        .compare-table td:first-child {
+            text-align: left;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .score-high { color: #5AAF8F; font-weight: 600; }
+        .score-med { color: var(--gold); font-weight: 600; }
+        .score-low { color: var(--crimson-light); font-weight: 600; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .section { padding: 3rem 1rem; }
+            .hero-stats { gap: 1.5rem; }
+            .timeline { padding-left: 2rem; }
+            .timeline-item::before { left: -2.4rem; }
+            .nation-stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Documento Histórico Oficial</div>
+            <h1>União C.W.R.B.</h1>
+            <p class="hero-subtitle">A Grande Guerra pelo Continente<br>1904 — 1991</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">87</div>
+                    <div class="stat-label">Anos de Guerra</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Eras de Conflito</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Nações Envolvidas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Aparição Divina</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </div>
+    </section>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#historia" class="active">História</a>
+            <a href="#eras">Eras</a>
+            <a href="#nacoes">Nações</a>
+            <a href="#ranking">Ranking</a>
+            <a href="#tecnologia">Tecnologia</a>
+            <a href="#batalhas">Batalhas</a>
+            <a href="#economia">Economia</a>
+            <a href="#comercio">Comércio</a>
+            <a href="#religiao">Religião</a>
+            <a href="#desfecho">Desfecho</a>
+        </div>
+    </nav>
+
+    <!-- INTRO -->
+    <section class="section" id="historia">
+        <h2 class="section-title">Contexto da Guerra</h2>
+        <p class="section-subtitle">A aliança que mudaria o destino de um continente inteiro.</p>
+
+        <div class="card-grid">
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(212,175,55,0.15);">⚔️</div>
+                <h3>O Conflito</h3>
+                <p>A União C.W.R.B. foi fundada por quatro nações que uniram forças para resistir à expansão do Império Fribosento e seus aliados. O que começou como defesa se tornou a maior guerra do continente.</p>
+                <div class="card-tags">
+                    <span class="tag tag-gold">87 Anos</span>
+                    <span class="tag tag-crimson">4 Eras</span>
+                </div>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(30,58,95,0.3);">🛡️</div>
+                <h3>A Resistência</h3>
+                <p>Enquanto Fribosento invadia com massivas quantidades de soldados, a C.W.R.B. resistia ferozmente e investia pesado em medicina, educação, disciplina, inteligência e tecnologia.</p>
+                <div class="card-tags">
+                    <span class="tag tag-blue">Tecnologia</span>
+                    <span class="tag tag-green">Estratégia</span>
+                </div>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(139,0,0,0.15);">💥</div>
+                <h3>A Virada</h3>
+                <p>Em 1943, uma aparição divina do Deus Banido destruiu toda a frota inimiga. A partir daí, a C.W.R.B. dominou completamente, culminando com o lançamento da bomba nuclear.</p>
+                <div class="card-tags">
+                    <span class="tag tag-gold">Divino</span>
+                    <span class="tag tag-crimson">Nuclear</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-block fade-in">
+            <p>"Da cinza à supremacia — a história da União C.W.R.B. é a prova de que fé, inteligência e tecnologia podem vencer até mesmo o maior dos exércitos."</p>
+            <cite>— Crônicas da Grande Guerra, Vol. I</cite>
+        </div>
+    </section>
+
+    <!-- ERAS -->
+    <section class="section" id="eras" style="background: var(--dark-light);">
+        <h2 class="section-title">As Quatro Eras</h2>
+        <p class="section-subtitle">A evolução do conflito ao longo de quase nove décadas.</p>
+
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-era">Amanhecer das Cinzas</div>
+                <div class="timeline-date">1904 — 1917</div>
+                <p>Fribosento e seus aliados dominavam o cenário militar. A C.W.R.B. estava em posição defensiva, resistindo ferozmente enquanto investia massivamente em educação, medicina, disciplina e o início do desenvolvimento tecnológico.</p>
+                <ul>
+                    <li><strong>Invasões fribosentas</strong> contra ilhas da C.W.R.B. e aliados</li>
+                    <li><strong>Declínio inicial</strong> das nações Jackson e Juninho</li>
+                    <li><strong>Investimentos estratégicos</strong> em ciência e educação</li>
+                    <li><strong>Resistência organizada</strong> da aliança C.W.R.B.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-era">Inferno e Tecnologia Evoluída</div>
+                <div class="timeline-date">1917 — 1951</div>
+                <p>A C.W.R.B. começa a virar o jogo. Avanços tecnológicos começam a dar frutos. A guerra se intensifica em brutalidade e escala. Eventos decisivos redefinem o equilíbrio de poder.</p>
+                <ul>
+                    <li><strong>1936:</strong> A <strong>Monarquia Pré-Bosiana</strong> se separa do Império Fribosento</li>
+                    <li><strong>1943:</strong> A <strong>Batalha Naval do Deus Banido</strong> — aparição divina destrói toda a frota fribosenta</li>
+                    <li><strong>Revolta Bascaneira</strong> na República de Benzo (1922–1927)</li>
+                    <li><strong>Primeiro Tanque de Guerra do Mundo</strong> criado pela Monarquia Ricardiana</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in divine-glow">
+                <div class="timeline-era">Tecnologia Avançada</div>
+                <div class="timeline-date">1951 — 1990</div>
+                <p>A C.W.R.B. domina completamente. Tecnologia atinge patamares nunca antes vistos. A guerra se torna altamente tecnológica e devastadora. Novas nações surgem no vácuo de poder.</p>
+                <ul>
+                    <li><strong>1976:</strong> <strong>Primeiro Computador do Mundo</strong> — inventado pela Monarquia Ricardiana</li>
+                    <li><strong>1980:</strong> Surgimento da <strong>Ilha do Cérebro</strong> (nação rebelde)</li>
+                    <li><strong>1989:</strong> Surgimento da <strong>Batealagasaia do Norte</strong></li>
+                    <li><strong>Bomba Nuclear</strong> lançada na capital da República Armamentista do Davi Esteves</li>
+                    <li><strong>Anexação</strong> das nações Jackson e Juninho</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-era">Era do Fim</div>
+                <div class="timeline-date">1990 — 1991</div>
+                <p>A guerra chega ao seu desfecho inevitável. As forças da C.W.R.B. são incontestáveis. Negociações de rendição e tratados de paz selam o destino do continente.</p>
+                <ul>
+                    <li><strong>1990:</strong> Início do processo de encerramento da guerra</li>
+                    <li><strong>1991:</strong> A <strong>Guerra Acaba Oficialmente</strong></li>
+                    <li>A União C.W.R.B. emerge como força dominante absoluta</li>
+                    <li>O mapa político é redesenhado para uma nova era de paz</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAÇÕES -->
+    <section class="section" id="nacoes">
+        <h2 class="section-title">As Nações</h2>
+        <p class="section-subtitle">Cada nação, sua história, forças, fraquezas e destino na guerra.</p>
+
+        <div class="card-grid">
+            <!-- BANIMENTO -->
+            <div class="nation-card nation-banimento fade-in">
+                <div class="nation-header">
+                    <div class="nation-rank">1</div>
+                    <h3>República do Banimento</h3>
+                    <div class="nation-sub">Nação Central do Banidismo</div>
+                </div>
+                <div class="nation-body">
+                    <h4>Forças Militares</h4>
+                    <ul>
+                        <li>Soldados <strong>disciplinados e numerosos</strong></li>
+                        <li>Excelente <strong>marinha</strong></li>
+                        <li><strong>Proteção divina</strong> do Deus Banido</li>
+                    </ul>
+                    <h4>Economia</h4>
+                    <p>2º maior país do mundo com <strong>vastas áreas para cultivo de alimentos</strong>, garantindo sustentabilidade durante a guerra.</p>
+                    <h4>Religião</h4>
+                    <p><strong>BANIDISMO</strong> — a religião mais acreditada no continente. A nação central da fé no Deus Banido.</p>
+                    <h4>Evento Definidor</h4>
+                    <p>A <strong>aparição divina de 1943</strong> que destruiu toda a frota fribosenta, virando a guerra e colocando o Banimento no topo do ranking.</p>
+                    <div class="nation-stats-row">
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">#1</div>
+                            <div class="nation-stat-label">Poder 1943+</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">2º</div>
+                            <div class="nation-stat-label">Maior País</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">⭐</div>
+                            <div class="nation-stat-label">Divino</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CADUZIANO -->
+            <div class="nation-card nation-caduziano fade-in">
+                <div class="nation-header">
+                    <div class="nation-rank">2</div>
+                    <h3>Império Caduziano</h3>
+                    <div class="nation-sub">"Cadu Prime"</div>
+                </div>
+                <div class="nation-body">
+                    <h4>Forças Militares</h4>
+                    <ul>
+                        <li><strong>Poderosa aviação</strong></li>
+                        <li>Tecnologia <strong>avançada</strong></li>
+                        <li>Soldados <strong>fortes e inteligentes</strong></li>
+                    </ul>
+                    <h4>Economia</h4>
+                    <p>Base tecnológica robusta com foco em <strong>inovação industrial e pesquisa militar</strong>.</p>
+                    <h4>Curiosidade</h4>
+                    <p>Conhecido carinhosamente como <strong>"Cadu Prime"</strong> quando vencia batalhas. Um apelido que reflete o orgulho nacional.</p>
+                    <h4>Posição na Guerra</h4>
+                    <p>Manteve-se <strong>consistentemente no top 3–4</strong> durante toda a guerra, provando estabilidade e força contínua.</p>
+                    <div class="nation-stats-row">
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">#2</div>
+                            <div class="nation-stat-label">Poder Final</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">✈️</div>
+                            <div class="nation-stat-label">Aviação</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">🧠</div>
+                            <div class="nation-stat-label">Inteligência</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RICARDIANA -->
+            <div class="nation-card nation-ricardiana fade-in">
+                <div class="nation-header">
+                    <div class="nation-rank">3</div>
+                    <h3>Monarquia Ricardiana</h3>
+                    <div class="nation-sub">Pioneira da Inovação</div>
+                </div>
+                <div class="nation-body">
+                    <h4>Forças Militares</h4>
+                    <ul>
+                        <li><strong>Defesas excelentes</strong></li>
+                        <li><strong>Poder terrestre</strong> formidável</li>
+                        <li>Soldados <strong>inteligentes e disciplinados</strong></li>
+                    </ul>
+                    <h4>Clima</h4>
+                    <p>Território de <strong>gelo e neve permanentes</strong>, oferecendo vantagem defensiva natural.</p>
+                    <h4>Invenções Revolucionárias</h4>
+                    <ul>
+                        <li><strong>Primeiro Tanque de Guerra do Mundo</strong></li>
+                        <li><strong>Primeiro Computador do Mundo</strong> (1976)</li>
+                    </ul>
+                    <h4>Posição na Guerra</h4>
+                    <p>Consistentemente no <strong>top 3–4</strong>, com contribuições tecnológicas que mudaram o curso da história mundial.</p>
+                    <div class="nation-stats-row">
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">#3</div>
+                            <div class="nation-stat-label">Poder Final</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">🖥️</div>
+                            <div class="nation-stat-label">Computador</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">❄️</div>
+                            <div class="nation-stat-label">Defesa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WALLACY -->
+            <div class="nation-card nation-wallacy fade-in">
+                <div class="nation-header">
+                    <div class="nation-rank">4</div>
+                    <h3>Estado Wallacy</h3>
+                    <div class="nation-sub">Mestre da Sobrevivência</div>
+                </div>
+                <div class="nation-body">
+                    <h4>Forças Militares</h4>
+                    <ul>
+                        <li><strong>Boa marinha</strong></li>
+                        <li><strong>Armadilhas mortais</strong> sofisticadas</li>
+                        <li>Especialistas em <strong>guerra de atrito</strong></li>
+                    </ul>
+                    <h4>Medicina</h4>
+                    <p><strong>Medicina de ponta</strong> — crucial para manter as forças da C.W.R.B. saudáveis durante 87 anos de guerra.</p>
+                    <h4>Economia</h4>
+                    <p>Foco em <strong>infraestrutura médica e defensiva</strong>, com comércio de suprimentos médicos para aliados.</p>
+                    <div class="nation-stats-row">
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">#4</div>
+                            <div class="nation-stat-label">Poder Final</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">⚕️</div>
+                            <div class="nation-stat-label">Medicina</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">🪤</div>
+                            <div class="nation-stat-label">Armadilhas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRIBOSENTO -->
+            <div class="nation-card nation-fribosento fade-in">
+                <div class="nation-header">
+                    <div class="nation-rank">5</div>
+                    <h3>Império Fribosento</h3>
+                    <div class="nation-sub">O Antigo Dominador</div>
+                </div>
+                <div class="nation-body">
+                    <h4>Forças Militares</h4>
+                    <ul>
+                        <li><strong>Massiva quantidade</strong> de soldados</li>
+                        <li><strong>Marinha forte</strong></li>
+                        <li><strong>Território vasto</strong></li>
+                    </ul>
+                    <h4>Estratégia</h4>
+                    <p>Plano simples e brutal: <strong>invadir com tudo</strong>. Conseguiu invadir algumas ilhas, mas a C.W.R.B. resistia ferozmente.</p>
+                    <h4>Declínio</h4>
+                    <p>Começou como a nação mais poderosa (<strong>#1 em 1909</strong>), mas foi ultrapassado por Banimento em 1943 e nunca mais recuperou a posição. A <strong>Monarquia Pré-Bosiana se separou em 1936</strong>.</p>
+                    <div class="nation-stats-row">
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">#1→#5</div>
+                            <div class="nation-stat-label">Queda</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">⚔️</div>
+                            <div class="nation-stat-label">Massivo</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">📉</div>
+                            <div class="nation-stat-label">Declínio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MATÉRIA BRANCA -->
+            <div class="nation-card nation-materia fade-in">
+                <div class="nation-header">
+                    <div class="nation-rank">6</div>
+                    <h3>Matéria Branca</h3>
+                    <div class="nation-sub">A Nação do Mistério</div>
+                </div>
+                <div class="nation-body">
+                    <h4>Aliança</h4>
+                    <p><strong>Aliada do Fribosento</strong>, lutou ao lado do Império durante grande parte da guerra.</p>
+                    <h4>Religião</h4>
+                    <p><strong>BRANQUISMO</strong> — uma religião desconhecida e misteriosa, pouco documentada pelos historiadores.</p>
+                    <h4>Destino</h4>
+                    <p>Perdeu <strong>relevância militar</strong> ao longo da guerra. O Branquismo também declinou. Sobreviveu como nação, mas em posição muito inferior.</p>
+                    <div class="nation-stats-row">
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">#6</div>
+                            <div class="nation-stat-label">Poder Final</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">❓</div>
+                            <div class="nation-stat-label">Branquismo</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">📉</div>
+                            <div class="nation-stat-label">Declínio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DV -->
+            <div class="nation-card nation-dv fade-in">
+                <div class="nation-header">
+                    <div class="nation-rank">—</div>
+                    <h3>Rep. Armamentista do Davi Esteves</h3>
+                    <div class="nation-sub">A Capital Destruída</div>
+                </div>
+                <div class="nation-body">
+                    <h4>Aliança</h4>
+                    <p><strong>Aliada do Fribosento</strong>, fornecia armamentos e apoio militar ao bloco inimigo.</p>
+                    <h4>Destino</h4>
+                    <p>Sua <strong>capital foi atingida pela bomba nuclear</strong> lançada pela C.W.R.B. durante a Era da Tecnologia Avançada. Foi o ataque mais devastador da guerra.</p>
+                    <h4>Legado</h4>
+                    <p>O bombardeio de DV demonstrou o <strong>domínio tecnológico absoluto</strong> da C.W.R.B. e acelerou a rendição das forças inimigas.</p>
+                    <div class="nation-stats-row">
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">💥</div>
+                            <div class="nation-stat-label">Nuclear</div>
+                        </div>
+                        <div class="nation-stat">
+                            <div class="nation-stat-value">⚰️</div>
+                            <div class="nation-stat-label">Destruída</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="font-family: Cinzel, serif; color: var(--gold-light); margin: 4rem 0 2rem; font-size: 1.5rem;">Nações que Surgiram Durante a Guerra</h3>
+
+        <div class="card-grid">
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(139,0,0,0.15);">🏛️</div>
+                <h3>Monarquia Pré-Bosiana</h3>
+                <p><strong>1936</strong> — Se separou do Império Fribosento. Um golpe significativo na unidade do bloco inimigo. Fribosento nunca se recuperou completamente desta perda territorial.</p>
+                <div class="card-tags">
+                    <span class="tag tag-crimson">Separatista</span>
+                    <span class="tag tag-gold">1936</span>
+                </div>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(30,58,95,0.3);">🚛</div>
+                <h3>Nação Bascaneira</h3>
+                <p><strong>1922–1927</strong> — Revolta na República de Benzo. O nome vem dos caminhões militares abandonados da <strong>Bascânia</strong> que os rebeldes utilizavam. Durou 5 anos.</p>
+                <div class="card-tags">
+                    <span class="tag tag-blue">Rebelde</span>
+                    <span class="tag tag-gold">5 Anos</span>
+                </div>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(212,175,55,0.15);">🧠</div>
+                <h3>Ilha do Cérebro</h3>
+                <p><strong>1980</strong> — Nação rebelde que surgiu no meio do caos da guerra. Aproveitou o vácuo de poder em certas regiões durante os estágios finais do conflito.</p>
+                <div class="card-tags">
+                    <span class="tag tag-gold">Rebelde</span>
+                    <span class="tag tag-crimson">1980</span>
+                </div>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(27,77,62,0.3);">🌲</div>
+                <h3>Batealagasaia do Norte</h3>
+                <p><strong>1989</strong> — Nova nação que emergiu próximo ao fim da guerra. Formada em territórios instáveis durante os últimos anos de conflito.</p>
+                <div class="card-tags">
+                    <span class="tag tag-green">Nova</span>
+                    <span class="tag tag-gold">1989</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RANKING -->
+    <section class="section" id="ranking" style="background: var(--dark-light);">
+        <h2 class="section-title">Ranking de Poder</h2>
+        <p class="section-subtitle">A evolução do poder militar ao longo do tempo.</p>
+
+        <h3 style="font-family: Cinzel, serif; color: var(--gold); margin-bottom: 1rem; font-size: 1.3rem;">1909 — Início da Documentação</h3>
+        <table class="ranking-table">
+            <thead>
+                <tr><th>Pos</th><th>Nação</th><th>Bloco</th><th>Tendência</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="rank-pos rank-1">1</span></td><td><strong>Fribosento</strong></td><td>Inimigo</td><td class="trend-same">—</td></tr>
+                <tr><td><span class="rank-pos rank-2">2</span></td><td><strong>Banimento</strong></td><td>C.W.R.B.</td><td class="trend-up">⬆️ Subindo</td></tr>
+                <tr><td><span class="rank-pos rank-3">3</span></td><td><strong>Caduziano</strong></td><td>C.W.R.B.</td><td class="trend-same">—</td></tr>
+                <tr><td><span class="rank-pos rank-other">4</span></td><td><strong>Ricardiana</strong></td><td>C.W.R.B.</td><td class="trend-same">—</td></tr>
+                <tr><td><span class="rank-pos rank-other">5</span></td><td><strong>Wallacy</strong></td><td>C.W.R.B.</td><td class="trend-same">—</td></tr>
+                <tr><td><span class="rank-pos rank-other">6</span></td><td><strong>Matéria Branca</strong></td><td>Inimigo</td><td class="trend-down">⬇️ Caindo</td></tr>
+                <tr><td><span class="rank-pos rank-other">7</span></td><td><strong>Jackson</strong></td><td>—</td><td class="trend-down">⬇️ Declínio</td></tr>
+                <tr><td><span class="rank-pos rank-other">8</span></td><td><strong>Juninho</strong></td><td>—</td><td class="trend-down">⬇️ Declínio</td></tr>
+            </tbody>
+        </table>
+
+        <h3 style="font-family: Cinzel, serif; color: var(--gold); margin: 3rem 0 1rem; font-size: 1.3rem;">1943 — Após a Aparição do Deus Banido</h3>
+        <table class="ranking-table">
+            <thead>
+                <tr><th>Pos</th><th>Nação</th><th>Bloco</th><th>Mudança</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="rank-pos rank-1">1</span></td><td><strong>Banimento</strong></td><td>C.W.R.B.</td><td class="trend-up">⬆️ #2→#1 (Divino)</td></tr>
+                <tr><td><span class="rank-pos rank-2">2</span></td><td><strong>Fribosento</strong></td><td>Inimigo</td><td class="trend-down">⬇️ #1→#2</td></tr>
+                <tr><td><span class="rank-pos rank-3">3</span></td><td><strong>Caduziano</strong></td><td>C.W.R.B.</td><td class="trend-same">—</td></tr>
+                <tr><td><span class="rank-pos rank-other">4</span></td><td><strong>Ricardiana</strong></td><td>C.W.R.B.</td><td class="trend-same">—</td></tr>
+                <tr><td><span class="rank-pos rank-other">5</span></td><td><strong>Wallacy</strong></td><td>C.W.R.B.</td><td class="trend-same">—</td></tr>
+                <tr><td><span class="rank-pos rank-other">6</span></td><td><strong>Matéria Branca</strong></td><td>Inimigo</td><td class="trend-same">—</td></tr>
+                <tr><td><span class="rank-pos rank-other">7</span></td><td><strong>Jackson</strong></td><td>—</td><td class="trend-down">⬇️ Anexado</td></tr>
+                <tr><td><span class="rank-pos rank-other">8</span></td><td><strong>Juninho</strong></td><td>—</td><td class="trend-down">⬇️ Anexado</td></tr>
+            </tbody>
+        </table>
+
+        <h3 style="font-family: Cinzel, serif; color: var(--gold); margin: 3rem 0 1rem; font-size: 1.3rem;">1991 — Fim da Guerra</h3>
+        <table class="ranking-table">
+            <thead>
+                <tr><th>Pos</th><th>Nação</th><th>Bloco</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="rank-pos rank-1">1</span></td><td><strong>Banimento</strong></td><td>C.W.R.B.</td><td class="trend-up">🏆 Vencedor</td></tr>
+                <tr><td><span class="rank-pos rank-2">2</span></td><td><strong>Caduziano</strong></td><td>C.W.R.B.</td><td class="trend-up">🥈 Vencedor</td></tr>
+                <tr><td><span class="rank-pos rank-3">3</span></td><td><strong>Ricardiana</strong></td><td>C.W.R.B.</td><td class="trend-up">🥉 Vencedor</td></tr>
+                <tr><td><span class="rank-pos rank-other">4</span></td><td><strong>Wallacy</strong></td><td>C.W.R.B.</td><td class="trend-up">✅ Vencedor</td></tr>
+                <tr><td><span class="rank-pos rank-other">5</span></td><td><strong>Fribosento</strong></td><td>Inimigo</td><td class="trend-down">❌ Derrotado</td></tr>
+                <tr><td><span class="rank-pos rank-other">6</span></td><td><strong>Matéria Branca</strong></td><td>Inimigo</td><td class="trend-down">❌ Derrotado</td></tr>
+                <tr><td><span class="rank-pos rank-other">7</span></td><td><strong>Ilha do Cérebro</strong></td><td>—</td><td class="trend-same">🆕 Nova</td></tr>
+                <tr><td><span class="rank-pos rank-other">8</span></td><td><strong>Batealagasaia do Norte</strong></td><td>—</td><td class="trend-same">🆕 Nova</td></tr>
+            </tbody>
+        </table>
+
+        <div class="quote-block fade-in" style="margin-top: 3rem;">
+            <p>"Caduziano e Ricardiana mantiveram-se consistentemente no top 3–4 durante toda a guerra, provando sua estabilidade e força. Banimento dominou após 1943. Fribosento caiu do topo e nunca mais se recuperou."</p>
+            <cite>— Análise Estratégica Militar, 1991</cite>
+        </div>
+    </section>
+
+    <!-- TECNOLOGIA -->
+    <section class="section" id="tecnologia">
+        <h2 class="section-title">Invenções Tecnológicas</h2>
+        <p class="section-subtitle">As inovações que mudaram o curso da guerra e da história mundial.</p>
+
+        <div class="card-grid">
+            <div class="tech-card fade-in">
+                <div class="tech-year">~1917</div>
+                <div class="tech-title">Primeiro Tanque de Guerra do Mundo</div>
+                <div class="tech-desc">
+                    A <strong>Monarquia Ricardiana</strong> criou o primeiro tanque de guerra da história. Esta invenção revolucionou o combate terrestre, mudando para sempre a dinâmica das batalhas de infantaria. Blindagem, trilhos e armamento móvel transformaram a guerra de trincheiras.
+                </div>
+                <div class="tech-inventor">🏛️ Inventor: Monarquia Ricardiana</div>
+            </div>
+
+            <div class="tech-card fade-in">
+                <div class="tech-year">1976</div>
+                <div class="tech-title">Primeiro Computador do Mundo</div>
+                <div class="tech-desc">
+                    A <strong>Monarquia Ricardiana</strong> inventou o primeiro computador da história da humanidade. Este marco revolucionou a guerra, permitindo cálculos balísticos precisos, criptografia avançada, comunicação segura e planejamento estratégico computadorizado. Mudou para sempre a logística militar.
+                </div>
+                <div class="tech-inventor">🏛️ Inventor: Monarquia Ricardiana</div>
+            </div>
+
+            <div class="tech-card fade-in">
+                <div class="tech-year">1951–1990</div>
+                <div class="tech-title">Bomba Nuclear</div>
+                <div class="tech-desc">
+                    Desenvolvida pela <strong>C.W.R.B.</strong>, a bomba nuclear foi lançada na capital da <strong>República Armamentista do Davi Esteves</strong>. Foi o ataque mais devastador da guerra, demonstrando o domínio tecnológico absoluto da aliança. O evento acelerou drasticamente a rendição das forças inimigas.
+                </div>
+                <div class="tech-inventor">💥 Alvo: Capital de DV</div>
+            </div>
+
+            <div class="tech-card fade-in">
+                <div class="tech-year">1904–1991</div>
+                <div class="tech-title">Aviação Avançada</div>
+                <div class="tech-desc">
+                    O <strong>Império Caduziano</strong> desenvolveu poderosa aviação militar que dominou os céus do continente. De reconhecimento a bombardeios estratégicos, a força aérea caduziana foi crucial para a vitória da C.W.R.B. em múltiplas frentes de batalha.
+                </div>
+                <div class="tech-inventor">✈️ Desenvolvedor: Império Caduziano</div>
+            </div>
+
+            <div class="tech-card fade-in">
+                <div class="tech-year">1904–1991</div>
+                <div class="tech-title">Medicina de Campanha</div>
+                <div class="tech-desc">
+                    O <strong>Estado Wallacy</strong> revolucionou a medicina militar com técnicas de campo avançadas, cirurgias de emergência e tratamentos inovadores. Sua contribuição foi vital para manter as tropas da C.W.R.B. saudáveis durante 87 anos de conflito contínuo.
+                </div>
+                <div class="tech-inventor">⚕️ Desenvolvedor: Estado Wallacy</div>
+            </div>
+
+            <div class="tech-card fade-in">
+                <div class="tech-year">1904–1991</div>
+                <div class="tech-title">Armadilhas Mortais Sofisticadas</div>
+                <div class="tech-desc">
+                    O <strong>Estado Wallacy</strong> também se especializou em armadilhas mortais de alta tecnologia — minas inteligentes, defesas automáticas e sistemas de contenção que protegeram territórios aliados e causaram pesadas baixas ao inimigo.
+                </div>
+                <div class="tech-inventor">🪤 Desenvolvedor: Estado Wallacy</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BATALHAS -->
+    <section class="section" id="batalhas" style="background: var(--dark-light);">
+        <h2 class="section-title">Batalhas Decisivas</h2>
+        <p class="section-subtitle">Os confrontos que definiram o destino do continente.</p>
+
+        <div class="battle-card divine battle-divine fade-in">
+            <div class="battle-header">
+                <div class="battle-title">⚡ Batalha Naval do Deus Banido</div>
+                <div class="battle-year">1943 — Evento Divino</div>
+            </div>
+            <div class="battle-details">
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Confronto</div>
+                    <div class="battle-detail-value">Banimento vs. Fribosento</div>
+                </div>
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Local</div>
+                    <div class="battle-detail-value">Mar Territorial</div>
+                </div>
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Resultado</div>
+                    <div class="battle-detail-value">Vitória Decisiva do Banimento</div>
+                </div>
+            </div>
+            <div class="battle-desc">
+                Uma das batalhas navais mais pesadas da guerra. A frota fribosenta era numericamente superior e parecia destinada a vencer. Então ocorreu um evento sobrenatural sem precedentes: <strong>quatro anjos do Deus Banido</strong> surgiram sobre as águas, acompanhados pelo próprio <strong>Deus Banido</strong> — uma presença de luz branca intensa com reflexos metálicos amarelados, tão brilhante que era quase impossível olhar diretamente. Após a aparição, <strong>TODOS os navios fribosentos afundaram instantaneamente</strong>. A frota do Banimento saiu ilesa. Este evento divino virou o jogo da guerra. A República do Banimento ultrapassou Fribosento no ranking de poder e nunca mais perdeu a primeira posição.
+            </div>
+        </div>
+
+        <div class="battle-card fade-in">
+            <div class="battle-header">
+                <div class="battle-title">⚔️ Invasões de Fribosento</div>
+                <div class="battle-year">1904 — 1917</div>
+            </div>
+            <div class="battle-details">
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Atacante</div>
+                    <div class="battle-detail-value">Império Fribosento</div>
+                </div>
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Alvo</div>
+                    <div class="battle-detail-value">Ilhas da C.W.R.B.</div>
+                </div>
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Estratégia</div>
+                    <div class="battle-detail-value">Massa de Soldados</div>
+                </div>
+            </div>
+            <div class="battle-desc">
+                Fribosento lançou <strong>invasões massivas</strong> contra ilhas estratégicas pertencentes à C.W.R.B. e seus aliados. Utilizou enorme quantidade de soldados e força naval. Conseguiu ocupar algumas ilhas estratégicas temporariamente, mas a C.W.R.B. resistiu ferozmente, recuando para posições defensivas e investindo em tecnologia como resposta. Estas invasões iniciais moldaram a estratégia defensiva da aliança por décadas.
+            </div>
+        </div>
+
+        <div class="battle-card fade-in">
+            <div class="battle-header">
+                <div class="battle-title">🚛 Revolta Bascaneira</div>
+                <div class="battle-year">1922 — 1927</div>
+            </div>
+            <div class="battle-details">
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Local</div>
+                    <div class="battle-detail-value">República de Benzo</div>
+                </div>
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Líderes</div>
+                    <div class="battle-detail-value">Nação Bascaneira</div>
+                </div>
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Duração</div>
+                    <div class="battle-detail-value">5 Anos</div>
+                </div>
+            </div>
+            <div class="battle-desc">
+                Uma <strong>rebelião interna</strong> contra o governo de Benzo. Os soldados bascaneiros usavam <strong>caminhões militares abandonados da Bascânia</strong>, daí o nome do movimento. A revolta durou 5 anos e deixou marcas profundas na estabilidade da região, criando um precedente para futuros movimentos separatistas no continente.
+            </div>
+        </div>
+
+        <div class="battle-card fade-in">
+            <div class="battle-header">
+                <div class="battle-title">☢️ Bombardeio Nuclear de DV</div>
+                <div class="battle-year">Era da Tecnologia Avançada</div>
+            </div>
+            <div class="battle-details">
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Alvo</div>
+                    <div class="battle-detail-value">Capital de Davi Esteves</div>
+                </div>
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Arma</div>
+                    <div class="battle-detail-value">Bomba Nuclear</div>
+                </div>
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Impacto</div>
+                    <div class="battle-detail-value">Destruição Massiva</div>
+                </div>
+            </div>
+            <div class="battle-desc">
+                A <strong>bomba nuclear</strong> desenvolvida pela C.W.R.B. foi lançada na capital da República Armamentista do Davi Esteves. Este foi o <strong>ataque mais devastador da guerra</strong>, demonstrando o domínio tecnológico absoluto da aliança. A destruição da capital DV acelerou drasticamente a rendição das forças inimigas e marcou o ponto de não-retorno para o bloco fribosento.
+            </div>
+        </div>
+    </section>
+
+    <!-- ECONOMIA -->
+    <section class="section" id="economia">
+        <h2 class="section-title">Economia da Guerra</h2>
+        <p class="section-subtitle">Como as nações sustentaram 87 anos de conflito contínuo.</p>
+
+        <div class="economy-grid">
+            <div class="economy-card fade-in">
+                <div class="economy-icon">🌾</div>
+                <h3>Agricultura</h3>
+                <p>A <strong>República do Banimento</strong>, sendo o 2º maior país do mundo, possuía vastas áreas para cultivo de alimentos. Esta vantagem garantiu sustentabilidade alimentar para as tropas da C.W.R.B. durante toda a guerra.</p>
+            </div>
+            <div class="economy-card fade-in">
+                <div class="economy-icon">🏭</div>
+                <h3>Indústria Militar</h3>
+                <p>O <strong>Império Caduziano</strong> liderava a produção industrial com foco em aviação, armamentos e tecnologia avançada. Sua base industrial foi crucial para o armamento da aliança.</p>
+            </div>
+            <div class="economy-card fade-in">
+                <div class="economy-icon">⚕️</div>
+                <h3>Medicina e Saúde</h3>
+                <p>O <strong>Estado Wallacy</strong> desenvolveu uma economia baseada em medicina de ponta. Suprimentos médicos, cirurgiões e hospitais de campanha foram exportados para todos os aliados.</p>
+            </div>
+            <div class="economy-card fade-in">
+                <div class="economy-icon">❄️</div>
+                <h3>Recursos Naturais</h3>
+                <p>A <strong>Monarquia Ricardiana</strong>, com seu clima gelado, explorava recursos minerais raros e metais necessários para a produção de tanques, computadores e infraestrutura militar.</p>
+            </div>
+            <div class="economy-card fade-in">
+                <div class="economy-icon">🚢</div>
+                <h3>Comércio Marítimo</h3>
+                <p>Tanto <strong>Banimento</strong> quanto <strong>Wallacy</strong> possuíam excelentes marinhas, permitindo rotas comerciais seguras entre os aliados e bloqueio naval contra inimigos.</p>
+            </div>
+            <div class="economy-card fade-in">
+                <div class="economy-icon">📉</div>
+                <h3>Colapso Inimigo</h3>
+                <p>O <strong>Império Fribosento</strong> colapsou economicamente após perder territórios (Pré-Bosiana em 1936) e sofrer a destruição de sua frota em 1943. Sem recursos, sua máquina de guerra parou.</p>
+            </div>
+        </div>
+
+        <h3 style="font-family: Cinzel, serif; color: var(--gold-light); margin: 3rem 0 1.5rem; font-size: 1.3rem;">Comparação Econômica das Nações da C.W.R.B.</h3>
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>Nação</th>
+                    <th>Agricultura</th>
+                    <th>Indústria</th>
+                    <th>Tecnologia</th>
+                    <th>Medicina</th>
+                    <th>Marinha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Banimento</td>
+                    <td class="score-high">★★★★★</td>
+                    <td class="score-med">★★★☆☆</td>
+                    <td class="score-med">★★★☆☆</td>
+                    <td class="score-med">★★★☆☆</td>
+                    <td class="score-high">★★★★★</td>
+                </tr>
+                <tr>
+                    <td>Caduziano</td>
+                    <td class="score-med">★★★☆☆</td>
+                    <td class="score-high">★★★★★</td>
+                    <td class="score-high">★★★★★</td>
+                    <td class="score-med">★★★☆☆</td>
+                    <td class="score-med">★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td>Ricardiana</td>
+                    <td class="score-low">★★☆☆☆</td>
+                    <td class="score-high">★★★★★</td>
+                    <td class="score-high">★★★★★</td>
+                    <td class="score-med">★★★☆☆</td>
+                    <td class="score-med">★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td>Wallacy</td>
+                    <td class="score-med">★★★☆☆</td>
+                    <td class="score-med">★★★☆☆</td>
+                    <td class="score-med">★★★☆☆</td>
+                    <td class="score-high">★★★★★</td>
+                    <td class="score-high">★★★★★</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- COMÉRCIO -->
+    <section class="section" id="comercio" style="background: var(--dark-light);">
+        <h2 class="section-title">Comércio e Rotas</h2>
+        <p class="section-subtitle">As rotas comerciais que sustentaram a aliança C.W.R.B.</p>
+
+        <div class="trade-flow fade-in">
+            <h3>🔄 Rota Principal C.W.R.B.</h3>
+            <p style="color: var(--text-dim); margin-bottom: 1rem;">O comércio interno da aliança era a espinha dorsal econômica da guerra:</p>
+            <div class="trade-partners">
+                <div class="trade-partner">🌾 Banimento <span class="trade-arrow">→</span> Alimentos</div>
+                <div class="trade-partner">✈️ Caduziano <span class="trade-arrow">→</span> Armamentos</div>
+                <div class="trade-partner">🖥️ Ricardiana <span class="trade-arrow">→</span> Tecnologia</div>
+                <div class="trade-partner">⚕️ Wallacy <span class="trade-arrow">→</span> Medicina</div>
+            </div>
+        </div>
+
+        <div class="trade-flow fade-in">
+            <h3>⚔️ Bloqueio Naval Contra Inimigos</h3>
+            <p style="color: var(--text-dim); margin-bottom: 1rem;">A marinha conjunta de Banimento e Wallacy bloqueava rotas comerciais inimigas:</p>
+            <div class="trade-partners">
+                <div class="trade-partner">🚫 Fribosento <span class="trade-arrow">→</span> Bloqueado</div>
+                <div class="trade-partner">🚫 Matéria Branca <span class="trade-arrow">→</span> Isolada</div>
+                <div class="trade-partner">🚫 DV <span class="trade-arrow">→</span> Sem Abastecimento</div>
+            </div>
+        </div>
+
+        <div class="trade-flow fade-in">
+            <h3>📦 Recursos Estratégicos</h3>
+            <p style="color: var(--text-dim); margin-bottom: 1rem;">Cada nação contribuía com recursos únicos para o esforço de guerra conjunto:</p>
+            <div class="trade-partners">
+                <div class="trade-partner">🌾 Grãos e Alimentos</div>
+                <div class="trade-partner">⛏️ Minerais Raros</div>
+                <div class="trade-partner">🔧 Peças Industriais</div>
+                <div class="trade-partner">💊 Medicamentos</div>
+                <div class="trade-partner">⛽ Combustível</div>
+                <div class="trade-partner">📡 Comunicação</div>
+            </div>
+        </div>
+
+        <div class="card-grid" style="margin-top: 2rem;">
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(212,175,55,0.15);">📈</div>
+                <h3>Economia de Guerra</h3>
+                <p>A C.W.R.B. operava uma <strong>economia total de guerra</strong> onde toda a produção era direcionada ao esforço militar. Indústrias civis foram convertidas para produção de armas, veículos e suprimentos.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(139,0,0,0.15);">💰</div>
+                <h3>Colapso Econômico Inimigo</h3>
+                <p>Sem acesso a rotas comerciais e com territórios perdidos, o bloco inimigo (<strong>Fribosento, Matéria Branca, DV</strong>) sofreu colapso econômico progressivo, incapaz de sustentar sua máquina de guerra.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RELIGIÃO -->
+    <section class="section" id="religiao">
+        <h2 class="section-title">Religião e Fé</h2>
+        <p class="section-subtitle">O papel da espiritualidade no maior conflito do continente.</p>
+
+        <div class="card-grid">
+            <div class="card fade-in divine-glow">
+                <div class="card-icon" style="background: rgba(212,175,55,0.2);">⭐</div>
+                <h3>BANIDISMO</h3>
+                <p>A <strong>religião mais acreditada</strong> no continente da União C.W.R.B. Acredita no <strong>"Deus Banido"</strong>, uma entidade divina que concede proteção divina aos soldados em batalha.</p>
+                <p style="margin-top: 1rem;"><strong>A República do Banimento</strong> é a nação central desta fé, sendo o coração espiritual do continente.</p>
+                <div class="card-tags">
+                    <span class="tag tag-gold">Dominante</span>
+                    <span class="tag tag-gold">Proteção Divina</span>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(139,0,0,0.15);">❓</div>
+                <h3>BRANQUISMO</h3>
+                <p>Uma religião <strong>desconhecida e misteriosa</strong> praticada pela <strong>Matéria Branca</strong>, aliada do Fribosento. Pouco documentada pelos historiadores, seus rituais e crenças permanecem um mistério.</p>
+                <p style="margin-top: 1rem;">Declinou junto com a nação durante a guerra, sendo praticamente extinta ao final do conflito.</p>
+                <div class="card-tags">
+                    <span class="tag tag-crimson">Extinta</span>
+                    <span class="tag tag-crimson">Mistério</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="battle-card divine battle-divine fade-in" style="margin-top: 3rem;">
+            <div class="battle-header">
+                <div class="battle-title">🙏 A Aparição do Deus Banido</div>
+                <div class="battle-year">1943 — Milagre Divino</div>
+            </div>
+            <div class="battle-details">
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Data</div>
+                    <div class="battle-detail-value">1943</div>
+                </div>
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Testemunhas</div>
+                    <div class="battle-detail-value">Soldados do Banimento</div>
+                </div>
+                <div class="battle-detail">
+                    <div class="battle-detail-label">Efeito</div>
+                    <div class="battle-detail-value">Frota Inimiga Destruída</div>
+                </div>
+            </div>
+            <div class="battle-desc">
+                Durante a <strong>Batalha Naval do Deus Banido</strong>, quatro anjos surgiram sobre o campo de batalha naval, acompanhados pelo próprio <strong>Deus Banido</strong>. Aparência: uma luz branca brilhosa com tons metálicos amarelados, tão intensa que era quase impossível olhar diretamente. <strong>Todos os navios fribosentos afundaram instantaneamente</strong>. Este evento confirmou a fé no Banidismo como a verdadeira religião do continente e virou o curso da guerra para sempre.
+            </div>
+        </div>
+
+        <div class="quote-block fade-in" style="margin-top: 2rem;">
+            <p>"O Deus Banido concede proteção divina aos soldados em batalha — e em 1943, Ele provou isso ao mundo."</p>
+            <cite>— Sacerdotes do Banidismo, 1943</cite>
+        </div>
+    </section>
+
+    <!-- DESFECHO -->
+    <section class="section" id="desfecho" style="background: var(--dark-light);">
+        <h2 class="section-title">O Desfecho</h2>
+        <p class="section-subtitle">Como terminou a maior guerra do continente.</p>
+
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-era">1990 — O Início do Fim</div>
+                <div class="timeline-date">Último Ano de Guerra Ativa</div>
+                <p>A C.W.R.B. é <strong>incontestável</strong>. As forças de Fribosento e aliados estão esgotadas. O domínio tecnológico, militar e divino da C.W.R.B. é absoluto. Negociações secretas de rendição começam entre as nações derrotadas.</p>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-era">1991 — A Guerra Acaba</div>
+                <div class="timeline-date">Tratados de Paz</div>
+                <p>Tratados de paz são assinados. A <strong>União C.W.R.B. emerge como a força dominante absoluta</strong> do continente. O mapa político é redesenhado para uma nova era. A fé no Banidismo se consolida como a religião predominante. A tecnologia desenvolvida durante a guerra transforma a sociedade pós-guerra.</p>
+            </div>
+        </div>
+
+        <h3 style="font-family: Cinzel, serif; color: var(--gold-light); margin: 3rem 0 1.5rem; font-size: 1.3rem;">Legado da Guerra</h3>
+
+        <div class="card-grid">
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(212,175,55,0.15);">📜</div>
+                <h3>87 Anos de História</h3>
+                <p>De 1904 a 1991, a guerra moldou o continente. Quatro eras distintas de conflito, cada uma com suas próprias características e desafios únicos.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(30,58,95,0.3);">🖥️</div>
+                <h3>Invenções que Mudaram o Mundo</h3>
+                <p>Primeiro tanque, primeiro computador, bomba nuclear — invenções nascidas na guerra que transformaram a humanidade para sempre.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(139,0,0,0.15);">⭐</div>
+                <h3>Uma Aparição Divina</h3>
+                <p>O evento sobrenatural de 1943 que virou o curso da história. A fé no Banidismo se consolidou como a religião dominante do continente.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon" style="background: rgba(27,77,62,0.3);">🏛️</div>
+                <h3>Novo Mapa Político</h3>
+                <p>A C.W.R.B. emergiu como potência dominante. Novas nações como Ilha do Cérebro e Batealagasaia do Norte surgiram no pós-guerra.</p>
+            </div>
+        </div>
+
+        <div class="quote-block fade-in" style="margin-top: 3rem;">
+            <p>"A ascensão da C.W.R.B. do desespero à supremacia é a maior prova de que nações unidas por um propósito comum podem superar até mesmo o mais formidável dos inimigos."</p>
+            <cite>— Epílogo das Crônicas da Grande Guerra</cite>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-text">União C.W.R.B.</div>
+        <div class="footer-sub">Documento Histórico Oficial da Grande Guerra (1904–1991)</div>
+        <div class="footer-sub" style="margin-top: 1rem; font-size: 0.75rem;">
+            "Da cinza à supremacia — a história de um continente que resistiu, inovou e venceu."
+        </div>
+    </footer>
+
+    <script>
+        // Fade in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Active nav on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section[id]');
+            const navLinks = document.querySelectorAll('.nav a');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
