@@ -1,0 +1,1092 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=6">
+<title>Uni&atilde;o C.W.R.B. - Portal Oficial</title>
+<style type="text/css">
+/* ========== RESET IE6 ========== */
+* { margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #0078D7;
+    background-image: url(bg_gradient.jpg);
+    background-repeat: repeat-x;
+    background-position: top;
+}
+img { border: 0; }
+a { color: #0066CC; text-decoration: none; }
+a:hover { color: #003399; text-decoration: underline; }
+
+/* ========== LAYOUT ========== */
+#wrapper {
+    width: 980px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-left: 1px solid #6699CC;
+    border-right: 1px solid #6699CC;
+    border-bottom: 1px solid #6699CC;
+}
+
+/* ========== HEADER ========== */
+#header {
+    width: 980px;
+    height: 160px;
+    background-color: #1E90FF;
+    background-image: url(header_bg.jpg);
+    background-repeat: repeat-x;
+    position: relative;
+    overflow: hidden;
+}
+
+#header-content {
+    padding: 15px 25px;
+}
+
+#logo-area {
+    float: left;
+    width: 110px;
+    height: 110px;
+    background-color: #FFFFFF;
+    border: 2px solid #87CEEB;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#logo-area img {
+    width: 100px;
+    height: 100px;
+}
+
+#title-area {
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#title-area h1 {
+    font-size: 32px;
+    color: #FFFFFF;
+    font-weight: normal;
+    letter-spacing: 2px;
+    filter: progid:DXImageTransform.Microsoft.Shadow(direction=135, strength=2, color='#000000');
+}
+
+#title-area h2 {
+    font-size: 14px;
+    color: #E0F7FF;
+    margin-top: 6px;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+#lang-select {
+    float: right;
+    margin-top: 15px;
+    text-align: right;
+}
+
+#lang-select div {
+    font-size: 11px;
+    color: #E0F7FF;
+    margin-bottom: 3px;
+}
+
+/* ========== NAVIGATION ========== */
+#nav-bar {
+    clear: both;
+    width: 980px;
+    height: 36px;
+    background-color: #E8E8E8;
+    background-image: url(nav_bg.jpg);
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #999999;
+    border-top: 1px solid #FFFFFF;
+}
+
+#nav-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nav-bar ul li {
+    float: left;
+    display: inline;
+}
+
+#nav-bar ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    border-right: 1px solid #BBBBBB;
+    border-left: 1px solid #FFFFFF;
+    background-color: transparent;
+}
+
+#nav-bar ul li a:hover {
+    background-color: #D0E0FF;
+    color: #0066CC;
+}
+
+#nav-bar ul li a.active {
+    background-color: #C0D8FF;
+    color: #004499;
+}
+
+/* ========== NEWS TICKER (MARQUEE) ========== */
+#news-ticker {
+    background-color: #003366;
+    color: #FFFFFF;
+    padding: 6px 0;
+    font-size: 11px;
+    border-bottom: 2px solid #00BFFF;
+    overflow: hidden;
+    height: 20px;
+}
+
+/* ========== MAIN CONTENT ========== */
+#main-content {
+    width: 940px;
+    margin: 15px auto;
+    background-color: #FFFFFF;
+    border: 1px solid #C0D0E0;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* ========== SIDEBAR ========== */
+#sidebar {
+    float: right;
+    width: 270px;
+    margin-left: 15px;
+}
+
+.sidebar-box {
+    background-color: #F8FBFF;
+    border: 1px solid #C0D8FF;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.sidebar-box h3 {
+    font-size: 13px;
+    color: #0066CC;
+    border-bottom: 2px solid #B0D0FF;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar-box ul {
+    list-style: none;
+}
+
+.sidebar-box ul li {
+    padding: 6px 0;
+    border-bottom: 1px dotted #C0D0E0;
+    font-size: 11px;
+}
+
+.sidebar-box table {
+    width: 100%;
+    font-size: 11px;
+}
+
+.sidebar-box table td {
+    padding: 4px 0;
+}
+
+/* ========== CONTENT ========== */
+#content {
+    float: left;
+    width: 610px;
+}
+
+.content-section {
+    background-color: #FFFFFF;
+    border: 1px solid #D0E0F0;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.content-section h2 {
+    font-size: 20px;
+    color: #0066CC;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #87CEEB;
+    font-weight: normal;
+}
+
+.content-section h3 {
+    font-size: 14px;
+    color: #1E90FF;
+    margin: 12px 0 8px 0;
+}
+
+.content-section p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #444444;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+/* ========== IMAGES ========== */
+.aero-image {
+    border: 3px solid #FFFFFF;
+    margin: 10px 0;
+}
+
+.map-container {
+    text-align: center;
+    padding: 10px;
+    background-color: #F0F8FF;
+    border: 2px solid #B0D0FF;
+    margin: 10px 0;
+}
+
+.map-container img {
+    border: 2px solid #FFFFFF;
+}
+
+.map-container div {
+    margin-top: 8px;
+    font-size: 10px;
+    color: #666666;
+}
+
+/* ========== BUTTONS ========== */
+.aero-button {
+    display: inline;
+    padding: 8px 20px;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    text-decoration: none;
+    border: 1px solid #0066CC;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 3px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#87CEFA', endColorstr='#1E90FF');
+}
+
+.aero-button:hover {
+    background-color: #00BFFF;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#A0D8FF', endColorstr='#00BFFF');
+}
+
+/* ========== TABLES ========== */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 11px;
+}
+
+.info-table th {
+    background-color: #E8F0FF;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #C0D0E0;
+    color: #004499;
+    font-weight: bold;
+}
+
+.info-table td {
+    padding: 6px 8px;
+    border: 1px solid #D0E0F0;
+    background-color: #FAFBFF;
+}
+
+/* ========== HIGHLIGHT BOX ========== */
+.highlight-box {
+    background-color: #FFF8E0;
+    border: 1px solid #FFD700;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+.highlight-box h4 {
+    color: #CC8800;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.highlight-box p {
+    font-size: 11px;
+    margin: 0;
+}
+
+/* ========== BLOCKQUOTE ========== */
+blockquote {
+    background-color: #F0F8FF;
+    border-left: 4px solid #87CEEB;
+    padding: 12px 15px;
+    margin: 10px 0;
+    font-style: italic;
+    color: #555555;
+}
+
+/* ========== MEMBER LIST ========== */
+.member-list {
+    list-style: none;
+}
+
+.member-list li {
+    padding: 8px 12px;
+    margin: 6px 0;
+    background-color: #F8FBFF;
+    border: 1px solid #D0E0F0;
+    border-left: 4px solid #1E90FF;
+    font-size: 12px;
+}
+
+.member-list li strong {
+    color: #0066CC;
+}
+
+/* ========== TIMELINE ========== */
+.timeline {
+    padding-left: 25px;
+    margin: 15px 0;
+}
+
+.timeline-item {
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: #FFFFFF;
+    border: 1px solid #D0E0F0;
+    position: relative;
+}
+
+.timeline-date {
+    font-size: 11px;
+    color: #1E90FF;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.timeline-title {
+    font-size: 13px;
+    color: #333333;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.timeline-desc {
+    font-size: 11px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+/* ========== COMPAT BANNER ========== */
+.compat-banner {
+    background-color: #F0F0F0;
+    border: 1px solid #C0C0C0;
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 10px;
+    color: #666666;
+    text-align: center;
+}
+
+/* ========== FOOTER ========== */
+#footer {
+    clear: both;
+    width: 980px;
+    background-color: #1A1A2E;
+    background-image: url(footer_bg.jpg);
+    background-repeat: repeat-x;
+    color: #A0A0C0;
+    padding: 25px 0;
+    margin-top: 20px;
+    border-top: 3px solid #00BFFF;
+}
+
+#footer-content {
+    width: 940px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.footer-col {
+    float: left;
+    width: 280px;
+    margin-right: 25px;
+}
+
+.footer-col h4 {
+    color: #87CEEB;
+    font-size: 13px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #404060;
+    padding-bottom: 6px;
+}
+
+.footer-col p, .footer-col a {
+    font-size: 11px;
+    color: #8080A0;
+    line-height: 1.7;
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    color: #00BFFF;
+    text-decoration: underline;
+}
+
+#copyright {
+    clear: both;
+    text-align: center;
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid #404060;
+    font-size: 11px;
+    color: #606080;
+}
+
+/* ========== CLEARFIX ========== */
+.clearfix {
+    display: block;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+/* ========== VISTA BADGE ========== */
+.vista-badge {
+    display: inline;
+    background-color: #00A651;
+    color: #FFFFFF;
+    font-size: 10px;
+    padding: 2px 8px;
+    font-weight: bold;
+    margin-left: 8px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00C060', endColorstr='#008040');
+}
+
+/* ========== CALENDAR ========== */
+.calendar-table {
+    width: 100%;
+    font-size: 10px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.calendar-table td {
+    padding: 4px;
+    border: 1px solid #E0E0E0;
+}
+
+.calendar-header {
+    background-color: #E8F0FF;
+    font-weight: bold;
+}
+
+.calendar-today {
+    background-color: #FFEB3B;
+    font-weight: bold;
+}
+
+/* ========== NEWS ITEMS ========== */
+.news-item {
+    border-bottom: 1px solid #E0E0E0;
+    padding: 12px 0;
+}
+
+.news-date {
+    font-size: 10px;
+    color: #1E90FF;
+    margin-bottom: 4px;
+}
+
+.news-title {
+    margin: 0 0 6px 0;
+    font-size: 14px;
+}
+
+.news-desc {
+    margin: 0;
+    font-size: 11px;
+}
+
+/* ========== FORM ELEMENTS ========== */
+input[type="text"], input[type="password"] {
+    padding: 2px;
+    font-size: 11px;
+    border: 1px solid #C0D0E0;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+
+select {
+    padding: 2px;
+    font-size: 11px;
+    border: 1px solid #FFFFFF;
+    background-color: #E8F0FF;
+    color: #333333;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+
+<!-- ========== HEADER ========== -->
+<div id="header">
+    <div id="header-content" class="clearfix">
+        <div id="logo-area">
+            <img src="bandeira_cwrb.png" alt="Bandeira" width="100" height="100">
+        </div>
+        <div id="title-area">
+            <h1>Uni&atilde;o C.W.R.B.</h1>
+            <h2>Coaliz&atilde;o dos Povos Livres do Continente &bull; Fundada em 1904</h2>
+        </div>
+        <div id="lang-select">
+            <div>Idioma:</div>
+            <select>
+                <option>Portugu&ecirc;s</option>
+                <option>English</option>
+                <option>Espa&ntilde;ol</option>
+                <option>Fran&ccedil;ais</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- ========== NAVIGATION ========== -->
+<div id="nav-bar">
+    <ul class="clearfix">
+        <li><a href="#inicio" class="active">In&iacute;cio</a></li>
+        <li><a href="#sobre">Sobre a Uni&atilde;o</a></li>
+        <li><a href="#membros">Membros</a></li>
+        <li><a href="#guerra">Guerra da Fribose</a></li>
+        <li><a href="#mapas">Mapas</a></li>
+        <li><a href="#noticias">Not&iacute;cias</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+</div>
+
+<!-- ========== NEWS TICKER (MARQUEE) ========== -->
+<div id="news-ticker">
+    <marquee behavior="scroll" direction="left" scrollamount="3">
+        &#9733; Bem-vindo ao novo portal da Uni&atilde;o C.W.R.B. &bull; &#9829; Rep&uacute;blica do Banimento celebra 50 anos de paz &bull; &#9760; Monarquia Ricardiana inaugura nova base militar &bull; &#9992; Imp&eacute;rio Caduziano lan&ccedil;a nova gera&ccedil;&atilde;o de ca&ccedil;as &bull; &#9875; Estado Wallacy expande frota naval &bull; &#9788; Uni&atilde;o C.W.R.B. fortalece la&ccedil;os diplom&aacute;ticos com Rep&uacute;blica Dinal Lerdona
+    </marquee>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div id="main-content" class="clearfix">
+
+<!-- ========== SIDEBAR ========== -->
+<div id="sidebar">
+
+<!-- Login Box -->
+<div class="sidebar-box">
+    <h3>&#128274; Acesso Restrito</h3>
+    <form action="#" method="post">
+        <table>
+            <tr>
+                <td style="padding: 4px 0;">Usu&aacute;rio:</td>
+                <td><input type="text" style="width: 110px;"></td>
+            </tr>
+            <tr>
+                <td style="padding: 4px 0;">Senha:</td>
+                <td><input type="password" style="width: 110px;"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding-top: 8px; text-align: center;">
+                    <input type="submit" value="Entrar" class="aero-button" style="padding: 4px 15px; font-size: 11px;">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="text-align: center; margin-top: 6px; font-size: 10px;">
+        <a href="#">Esqueceu a senha?</a> | <a href="#">Cadastrar</a>
+    </div>
+</div>
+
+<!-- Quick Links -->
+<div class="sidebar-box">
+    <h3>&#128279; Links R&aacute;pidos</h3>
+    <ul>
+        <li><a href="#">&#128203; Constitui&ccedil;&atilde;o da Uni&atilde;o</a></li>
+        <li><a href="#">&#127963; Parlamento C.W.R.B.</a></li>
+        <li><a href="#">&#9876; Comando Militar Conjunto</a></li>
+        <li><a href="#">&#128178; Banco Central da Uni&atilde;o</a></li>
+        <li><a href="#">&#128225; Centro de Intelig&ecirc;ncia</a></li>
+        <li><a href="#">&#127973; Rede Hospitalar Unificada</a></li>
+        <li><a href="#">&#128218; Arquivos Hist&oacute;ricos</a></li>
+        <li><a href="#">&#127760; Rela&ccedil;&otilde;es Internacionais</a></li>
+    </ul>
+</div>
+
+<!-- Stats -->
+<div class="sidebar-box">
+    <h3>&#128202; Estat&iacute;sticas da Uni&atilde;o</h3>
+    <table>
+        <tr>
+            <td style="padding: 4px 0; color: #666;">Pa&iacute;ses Membros:</td>
+            <td style="text-align: right; font-weight: bold; color: #0066CC;">4 + 6 Aliados</td>
+        </tr>
+        <tr>
+            <td style="padding: 4px 0; color: #666;">Popula&ccedil;&atilde;o Total:</td>
+            <td style="text-align: right; font-weight: bold; color: #0066CC;">~180 Milh&otilde;es</td>
+        </tr>
+        <tr>
+            <td style="padding: 4px 0; color: #666;">PIB Combinado:</td>
+            <td style="text-align: right; font-weight: bold; color: #0066CC;">$2.4 Tri</td>
+        </tr>
+        <tr>
+            <td style="padding: 4px 0; color: #666;">For&ccedil;as Armadas:</td>
+            <td style="text-align: right; font-weight: bold; color: #0066CC;">2.8 Milh&otilde;es</td>
+        </tr>
+        <tr>
+            <td style="padding: 4px 0; color: #666;">Ano de Funda&ccedil;&atilde;o:</td>
+            <td style="text-align: right; font-weight: bold; color: #0066CC;">1904</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Weather Widget -->
+<div class="sidebar-box">
+    <h3>&#127780; Clima na Capital</h3>
+    <div style="text-align: center; padding: 8px;">
+        <div style="font-size: 32px; color: #1E90FF;">&#9728;</div>
+        <div style="font-size: 22px; font-weight: bold; color: #333; margin: 4px 0;">22&deg;C</div>
+        <div style="font-size: 11px; color: #666;">Ensolarado &bull; Capital da Rep&uacute;blica do Banimento</div>
+        <div style="font-size: 10px; color: #999; margin-top: 6px;">Umidade: 65% &bull; Vento: 12 km/h</div>
+    </div>
+</div>
+
+<!-- Calendar -->
+<div class="sidebar-box">
+    <h3>&#128197; Calend&aacute;rio Oficial</h3>
+    <table class="calendar-table">
+        <tr class="calendar-header">
+            <td>D</td><td>S</td><td>T</td><td>Q</td><td>Q</td><td>S</td><td>S</td>
+        </tr>
+        <tr>
+            <td style="color: #CCC;">28</td><td style="color: #CCC;">29</td><td style="color: #CCC;">30</td><td style="color: #CCC;">31</td><td>1</td><td>2</td><td>3</td>
+        </tr>
+        <tr>
+            <td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+        </tr>
+        <tr>
+            <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td class="calendar-today">16</td><td>17</td>
+        </tr>
+        <tr>
+            <td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
+        </tr>
+        <tr>
+            <td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td style="color: #CCC;">1</td>
+        </tr>
+    </table>
+    <div style="font-size: 10px; color: #666; margin-top: 6px; text-align: center;">
+        <span style="color: #FF6600;">&#9679;</span> Feriado &nbsp; <span style="color: #1E90FF;">&#9679;</span> Evento Militar
+    </div>
+</div>
+
+</div>
+
+<!-- ========== CONTENT ========== -->
+<div id="content">
+
+<!-- Welcome Section -->
+<div class="content-section">
+    <h2>Bem-vindo ao Portal Oficial da Uni&atilde;o C.W.R.B.</h2>
+    <p style="font-size: 13px; color: #555; line-height: 1.7;">
+        A <strong>Uni&atilde;o C.W.R.B.</strong> (Coaliz&atilde;o dos Povos Livres do Continente) &eacute; a alian&ccedil;a militar e pol&iacute;tica 
+        mais poderosa do continente, fundada em <strong>1904</strong> para resistir &agrave;s ambi&ccedil;&otilde;es expansionistas do 
+        <strong>Imp&eacute;rio Fribosento</strong> e seus aliados. Ap&oacute;s d&eacute;cadas de conflito feroz, a Uni&atilde;o emergiu vitoriosa 
+        em <strong>1991</strong>, consolidando a paz e a prosperidade para seus povos.
+    </p>
+
+    <div class="highlight-box">
+        <h4>&#127894; Comunicado Oficial do Alto Comando</h4>
+        <p style="margin: 0;">
+            "A Uni&atilde;o C.W.R.B. permanece firme como garantidora da soberania e liberdade dos povos do continente. 
+            Nossas for&ccedil;as armadas est&atilde;o em constante estado de prontid&atilde;o, e nossa coopera&ccedil;&atilde;o econ&ocirc;mica e cultural 
+            nunca foi t&atilde;o forte. Que o Deus Banido proteja nossa na&ccedil;&atilde;o."
+            <br><br>
+            <em>&mdash; General-Comandante Supremo, Rep&uacute;blica do Banimento</em>
+        </p>
+    </div>
+
+    <div style="text-align: center; margin: 15px 0;">
+        <a href="#sobre" class="aero-button">Conhe&ccedil;a Nossa Hist&oacute;ria</a>
+        <a href="#membros" class="aero-button">Pa&iacute;ses Membros</a>
+        <a href="#guerra" class="aero-button">A Grande Guerra</a>
+    </div>
+</div>
+
+<!-- About Section -->
+<div class="content-section" id="sobre">
+    <h2>Sobre a Uni&atilde;o C.W.R.B. <span class="vista-badge">OFICIAL</span></h2>
+
+    <h3>&#127919; Objetivos Fundacionais</h3>
+    <p>
+        A Uni&atilde;o C.W.R.B. foi estabelecida com quatro pilares fundamentais: <strong>defesa m&uacute;tua</strong> contra 
+        agress&otilde;es externas, <strong>coopera&ccedil;&atilde;o econ&ocirc;mica</strong> para o desenvolvimento conjunto, 
+        <strong>interc&acirc;mbio cultural</strong> para fortalecer os la&ccedil;os entre os povos, e <strong>preserva&ccedil;&atilde;o da paz</strong> 
+        no continente. Estes princ&iacute;pios guiaram a alian&ccedil;a atrav&eacute;s de quatro eras de guerra e continuam a nortear 
+        nossas pol&iacute;ticas contempor&acirc;neas.
+    </p>
+
+    <h3>&#127963; Estrutura Governamental</h3>
+    <p>
+        A governan&ccedil;a da Uni&atilde;o &eacute; dividida em tr&ecirc;s &oacute;rg&atilde;os principais: o <strong>Conselho de Chefes de Estado</strong>, 
+        composto pelos l&iacute;deres dos pa&iacute;ses membros; o <strong>Parlamento da Uni&atilde;o</strong>, com representantes eleitos 
+        de cada na&ccedil;&atilde;o; e o <strong>Comando Militar Conjunto</strong>, respons&aacute;vel pela coordena&ccedil;&atilde;o estrat&eacute;gica das 
+        for&ccedil;as armadas.
+    </p>
+
+    <blockquote>
+        "A for&ccedil;a da Uni&atilde;o n&atilde;o est&aacute; apenas em seus ex&eacute;rcitos, mas na uni&atilde;o de seus cora&ccedil;&otilde;es e mentes em busca 
+        de um futuro comum de liberdade e dignidade."
+    </blockquote>
+
+    <h3>&#9889; Poder Militar Combinado</h3>
+    <table class="info-table">
+        <tr>
+            <th>Ramo Militar</th>
+            <th>For&ccedil;a Total</th>
+            <th>Destaque</th>
+        </tr>
+        <tr>
+            <td>&#128737; Ex&eacute;rcito Terrestre</td>
+            <td>1.800.000 soldados</td>
+            <td>Monarquia Ricardiana &mdash; tanques avan&ccedil;ados</td>
+        </tr>
+        <tr>
+            <td>&#9992; For&ccedil;a A&eacute;rea</td>
+            <td>45.000 aeronaves</td>
+            <td>Imp&eacute;rio Caduziano &mdash; tecnologia aeroespacial</td>
+        </tr>
+        <tr>
+            <td>&#9875; Marinha de Guerra</td>
+            <td>890 embarca&ccedil;&otilde;es</td>
+            <td>Rep&uacute;blica do Banimento &mdash; frota dominante</td>
+        </tr>
+        <tr>
+            <td>&#128640; Defesa Estrat&eacute;gica</td>
+            <td>Arsenal nuclear</td>
+            <td>Uni&atilde;o &mdash; dissuas&atilde;o m&uacute;tua garantida</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Members Section -->
+<div class="content-section" id="membros">
+    <h2>Pa&iacute;ses Membros Fundadores</h2>
+    <p>
+        A Uni&atilde;o C.W.R.B. foi fundada por quatro na&ccedil;&otilde;es que compartilhavam a vis&atilde;o de um continente livre da 
+        tirania fribosentina. Cada pa&iacute;s contribui com suas for&ccedil;as &uacute;nicas para a grandeza da coaliz&atilde;o.
+    </p>
+
+    <ul class="member-list">
+        <li>
+            <strong>&#128308; Rep&uacute;blica do Banimento</strong> &mdash; O cora&ccedil;&atilde;o espiritual e militar da Uni&atilde;o. Com sua 
+            prote&ccedil;&atilde;o divina do <strong>Deus Banido</strong>, soldados disciplinados e numerosos, e a segunda maior 
+            &aacute;rea territorial do mundo, a Rep&uacute;blica do Banimento &eacute; o pilar central da alian&ccedil;a. Sua marinha &eacute; 
+            lend&aacute;ria, especialmente ap&oacute;s a apari&ccedil;&atilde;o divina de 1943 que destruiu toda a frota inimiga.
+        </li>
+        <li>
+            <strong>&#128309; Imp&eacute;rio Caduziano</strong> &mdash; Conhecido carinhosamente como <strong>"Cadu Prime"</strong> 
+            quando vence batalhas, o Imp&eacute;rio Caduziano &eacute; a pot&ecirc;ncia tecnol&oacute;gica da Uni&atilde;o. Sua avia&ccedil;&atilde;o de ponta, 
+            soldados fortes e inteligentes, e constante inova&ccedil;&atilde;o em armamentos garantem a superioridade tecnol&oacute;gica 
+            da coaliz&atilde;o.
+        </li>
+        <li>
+            <strong>&#128995; Monarquia Ricardiana</strong> &mdash; Pioneira na cria&ccedil;&atilde;o do primeiro tanque de guerra do mundo, 
+            a Monarquia Ricardiana possui defesas excelentes, poder terrestre formid&aacute;vel e soldados dos mais 
+            disciplinados e inteligentes. Seu clima gelado e nevado forja guerreiros resilientes. Foi tamb&eacute;m a 
+            criadora do primeiro computador em 1976.
+        </li>
+        <li>
+            <strong>&#128993; Estado Wallacy</strong> &mdash; Especialista em medicina de guerra, armadilhas mortais e 
+            opera&ccedil;&otilde;es navais. O Estado Wallacy garante que os soldados da Uni&atilde;o recebam os melhores cuidados 
+            m&eacute;dicos e que o inimigo enfrente terrenos trai&ccedil;oeiros e defesas engenhosas.
+        </li>
+    </ul>
+
+    <h3 style="margin-top: 20px;">&#129309; Aliados Estrat&eacute;gicos</h3>
+    <ul class="member-list">
+        <li>
+            <strong>&#128992; Rep&uacute;blica de Benzo</strong> &mdash; Aliada fiel, criadora da marca de caminh&otilde;es militares 
+            <strong>Basc&acirc;nia</strong>. Foi palco da Revolta Bascaneira (1922-1927).
+        </li>
+        <li>
+            <strong>&#128994; Rep&uacute;blica Dinal Lerdona</strong> &mdash; Na&ccedil;&atilde;o rica gra&ccedil;as ao petr&oacute;leo <strong>Lerdon-X</strong>, 
+            fortalece a economia da Uni&atilde;o com recursos energ&eacute;ticos abundantes.
+        </li>
+        <li>
+            <strong>&#128308; Federa&ccedil;&atilde;o do Jackson</strong> &mdash; Originada da divis&atilde;o da Rep&uacute;blica de Benzo, mant&eacute;m 
+            la&ccedil;os culturais e militares fortes com a coaliz&atilde;o.
+        </li>
+        <li>
+            <strong>&#9899; Monarquia do Rolinho</strong> &mdash; Na&ccedil;&atilde;o mon&aacute;rquica leal &agrave; causa da Uni&atilde;o.
+        </li>
+        <li>
+            <strong>&#128995; Na&ccedil;&atilde;o do Juninho</strong> &mdash; Membro dedicado da coaliz&atilde;o, contribui com for&ccedil;as auxiliares.
+        </li>
+    </ul>
+</div>
+
+<!-- War Section -->
+<div class="content-section" id="guerra">
+    <h2>Guerra da Fribose (1904-1991)</h2>
+    <p>
+        A Grande Guerra que definiu o destino do continente durou 87 anos e foi dividida em quatro eras distintas. 
+        Cada per&iacute;odo marcou avan&ccedil;os tecnol&oacute;gicos, batalhas &eacute;picas e a gradual ascens&atilde;o da Uni&atilde;o C.W.R.B. ao 
+        status de pot&ecirc;ncia dominante.
+    </p>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-date">1904 &mdash; 1917</div>
+            <div class="timeline-title">&#127749; Amanhecer das Cinzas</div>
+            <div class="timeline-desc">
+                O Imp&eacute;rio Fribosento lan&ccedil;a sua ofensiva massiva com enormes contingentes de soldados, marinha 
+                poderosa e vasto territ&oacute;rio. Consegue invadir algumas ilhas da C.W.R.B., mas a coaliz&atilde;o resiste 
+                ferozmente enquanto investe pesado em medicina, educa&ccedil;&atilde;o, disciplina, intelig&ecirc;ncia e tecnologia. 
+                O Fribosento domina o in&iacute;cio do conflito.
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">1917 &mdash; 1951</div>
+            <div class="timeline-title">&#128293; Inferno e Tecnologia Evolu&iacute;da</div>
+            <div class="timeline-desc">
+                A C.W.R.B. come&ccedil;a a virar o jogo. A tecnologia avan&ccedil;a rapidamente, impulsionada pela necessidade 
+                de sobreviv&ecirc;ncia. A Monarquia Ricardiana inventa o primeiro tanque de guerra do mundo. A guerra 
+                entra em um estado de impasse brutal, com ambos os lados sofrendo perdas massivas.
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">1951 &mdash; 1990</div>
+            <div class="timeline-title">&#128640; Tecnologia Avan&ccedil;ada</div>
+            <div class="timeline-desc">
+                A Uni&atilde;o C.W.R.B. domina completamente o conflito. Em 1943, durante uma batalha naval decisiva, 
+                <strong>quatro anjos do Deus Banido</strong> aparecem junto com o pr&oacute;prio Deus Banido &mdash; descrito 
+                como um branco brilhoso e met&aacute;lico amarelado &mdash; e todos os navios fribosentos afundam. A Monarquia 
+                Ricardiana inventa o primeiro computador em 1976. A bomba nuclear &eacute; lan&ccedil;ada na capital da 
+                Rep&uacute;blica Armamentista do Davi Esteves, selando o destino do inimigo.
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">1990 &mdash; 1991</div>
+            <div class="timeline-title">&#9760; Era do Fim</div>
+            <div class="timeline-desc">
+                A guerra chega ao fim. O Imp&eacute;rio Fribosento e seus aliados s&atilde;o derrotados. A Uni&atilde;o C.W.R.B. 
+                consolida sua hegemonia no continente e inicia um per&iacute;odo de reconstru&ccedil;&atilde;o e paz duradoura. 
+                A Rep&uacute;blica do Banimento, que ultrapassou o Fribosento no ranking de poder em 1943, permanece 
+                como a na&ccedil;&atilde;o mais poderosa do continente.
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <h4>&#128220; Apari&ccedil;&atilde;o Divina de 1943</h4>
+        <p style="margin: 0;">
+            Durante a Batalha Naval do Estreito de Gelmir, quando a frota da Rep&uacute;blica do Banimento estava 
+            cercada por for&ccedil;as superiores do Imp&eacute;rio Fribosento, o c&eacute;u se abriu e quatro anjos radiantes 
+            desceram, seguidos pela presen&ccedil;a do <strong>Deus Banido</strong>. Testemunhas descreveram uma luz 
+            branca brilhante com tons met&aacute;licos amarelados. No instante seguinte, todos os navios inimigos 
+            afundaram. Este evento &eacute; celebrado anualmente como o <strong>Dia da Prote&ccedil;&atilde;o Divina</strong>.
+        </p>
+    </div>
+</div>
+
+<!-- Maps Section -->
+<div class="content-section" id="mapas">
+    <h2>&#128506; Mapas do Continente</h2>
+    <p>
+        Explore a geografia pol&iacute;tica do continente atrav&eacute;s de nossos mapas oficiais. A distribui&ccedil;&atilde;o territorial 
+        mudou drasticamente ao longo da guerra, com a Uni&atilde;o C.W.R.B. expandindo sua influ&ecirc;ncia e os aliados do 
+        Fribosento perdendo territ&oacute;rio progressivamente.
+    </p>
+
+    <h3>Mapa Pol&iacute;tico Completo</h3>
+    <div class="map-container">
+        <img src="mapa_politico.png" alt="Mapa Pol&iacute;tico do Continente" class="aero-image" width="580">
+        <div>Mapa pol&iacute;tico atual mostrando todas as na&ccedil;&otilde;es do continente e seus territ&oacute;rios.</div>
+    </div>
+
+    <h3>Mapa da Era do Amanhecer das Cinzas (1904-1917)</h3>
+    <div class="map-container">
+        <img src="mapa_guerra_inicio.png" alt="Mapa do In&iacute;cio da Guerra" class="aero-image" width="580">
+        <div>Legenda: &#128308; Aliados da Uni&atilde;o C.W.R.B. | &#128995; Aliados do Imp&eacute;rio Fribosento | &#9898; Pa&iacute;ses Neutros</div>
+    </div>
+
+    <h3>Bandeira Oficial da Uni&atilde;o C.W.R.B.</h3>
+    <div class="map-container">
+        <img src="bandeira_cwrb.png" alt="Bandeira da Uni&atilde;o C.W.R.B." class="aero-image" width="400">
+        <div>Verde representa esperan&ccedil;a e vit&oacute;ria. Os mosquetes simbolizam a resist&ecirc;ncia armada. O mapa branco representa a uni&atilde;o territorial.</div>
+    </div>
+</div>
+
+<!-- News Section -->
+<div class="content-section" id="noticias">
+    <h2>&#128240; Not&iacute;cias e Comunicados</h2>
+
+    <div class="news-item">
+        <div class="news-date">16 de Maio de 2026</div>
+        <h3 class="news-title">&#127894; Cerim&ocirc;nia de Comemora&ccedil;&atilde;o dos 35 Anos do Fim da Guerra</h3>
+        <p class="news-desc">
+            O Alto Comando da Uni&atilde;o C.W.R.B. realizou uma cerim&ocirc;nia grandiosa na capital da Rep&uacute;blica do Banimento 
+            para celebrar 35 anos de paz ininterrupta no continente. L&iacute;deres de todos os pa&iacute;ses membros estiveram 
+            presentes.
+        </p>
+    </div>
+
+    <div class="news-item">
+        <div class="news-date">14 de Maio de 2026</div>
+        <h3 class="news-title">&#9992; Imp&eacute;rio Caduziano Apresenta Nova Gera&ccedil;&atilde;o de Ca&ccedil;as "Cadu-X"</h3>
+        <p class="news-desc">
+            A For&ccedil;a A&eacute;rea Caduziana revelou o ca&ccedil;a supers&ocirc;nico Cadu-X, equipado com tecnologia stealth e 
+            sistemas de intelig&ecirc;ncia artificial de &uacute;ltima gera&ccedil;&atilde;o.
+        </p>
+    </div>
+
+    <div class="news-item">
+        <div class="news-date">10 de Maio de 2026</div>
+        <h3 class="news-title">&#128737; Monarquia Ricardiana Inaugura Nova Base Militar no &Aacute;rtico</h3>
+        <p class="news-desc">
+            A base "Fortaleza do Gelo" ser&aacute; o maior complexo militar do hemisf&eacute;rio norte, capacitada para 
+            opera&ccedil;&otilde;es em condi&ccedil;&otilde;es extremas e pesquisa tecnol&oacute;gica avan&ccedil;ada.
+        </p>
+    </div>
+
+    <div class="news-item" style="border-bottom: none;">
+        <div class="news-date">5 de Maio de 2026</div>
+        <h3 class="news-title">&#9875; Estado Wallacy Comissiona Novo Porta-Avi&otilde;es "WL-01"</h3>
+        <p class="news-desc">
+            A nova embarca&ccedil;&atilde;o, com capacidade para 90 aeronaves, refor&ccedil;a a presen&ccedil;a naval da Uni&atilde;o nos oceanos 
+            do continente.
+        </p>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="content-section" id="contato">
+    <h2>&#128222; Contato e Localiza&ccedil;&atilde;o</h2>
+
+    <table class="info-table">
+        <tr>
+            <th colspan="2">Sede Principal da Uni&atilde;o C.W.R.B.</th>
+        </tr>
+        <tr>
+            <td style="width: 30%;">&#128204; Endere&ccedil;o:</td>
+            <td>Pal&aacute;cio da Coaliz&atilde;o, Avenida da Liberdade, 1904 &mdash; Capital, Rep&uacute;blica do Banimento</td>
+        </tr>
+        <tr>
+            <td>&#128222; Telefone:</td>
+            <td>+55 1904-CWRB-000</td>
+        </tr>
+        <tr>
+            <td>&#128224; Fax:</td>
+            <td>+55 1904-CWRB-001</td>
+        </tr>
+        <tr>
+            <td>&#9993; E-mail:</td>
+            <td>contato@uniaocwrb.gov.rb</td>
+        </tr>
+        <tr>
+            <td>&#127760; Website:</td>
+            <td>www.uniaocwrb.gov.rb</td>
+        </tr>
+        <tr>
+            <td>&#128336; Hor&aacute;rio:</td>
+            <td>Segunda a Sexta, 08:00 &mdash; 18:00 (Hor&aacute;rio Oficial da Uni&atilde;o)</td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 15px; text-align: center;">
+        <a href="mailto:contato@uniaocwrb.gov.rb" class="aero-button">&#9993; Enviar E-mail</a>
+        <a href="#" class="aero-button">&#128203; Formul&aacute;rio de Contato</a>
+        <a href="#" class="aero-button">&#128506; Como Chegar</a>
+    </div>
+</div>
+
+<!-- Compatibility Banner -->
+<div class="compat-banner">
+    <strong>&#10003; Compat&iacute;vel com:</strong> Internet Explorer 6+ | Mozilla Firefox 2+ | Google Chrome | Opera 9+ | Safari 3+<br>
+    <strong>&#10003; Sistemas Operacionais:</strong> Windows XP | Windows Vista | Windows 7 | Windows 8/8.1 | Windows 10/11<br>
+    <strong>&#10003; Resolu&ccedil;&atilde;o Recomendada:</strong> 1024x768 ou superior | Otimizado para 1280x1024
+</div>
+
+</div>
+
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div id="footer">
+    <div id="footer-content">
+        <div class="footer-col">
+            <h4>&#127963; Institui&ccedil;&otilde;es</h4>
+            <p>
+                <a href="#">Parlamento da Uni&atilde;o</a><br>
+                <a href="#">Comando Militar Conjunto</a><br>
+                <a href="#">Tribunal Supremo da Uni&atilde;o</a><br>
+                <a href="#">Banco Central C.W.R.B.</a><br>
+                <a href="#">Ag&ecirc;ncia de Intelig&ecirc;ncia</a><br>
+                <a href="#">Minist&eacute;rio da Educa&ccedil;&atilde;o Unificada</a>
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>&#128218; Recursos</h4>
+            <p>
+                <a href="#">Biblioteca Nacional Digital</a><br>
+                <a href="#">Arquivos da Guerra da Fribose</a><br>
+                <a href="#">Museu da Tecnologia Militar</a><br>
+                <a href="#">Atlas Geopol&iacute;tico do Continente</a><br>
+                <a href="#">Dicion&aacute;rio de Termos Militares</a><br>
+                <a href="#">Galeria de Her&oacute;is da Uni&atilde;o</a>
+            </p>
+        </div>
+        <div class="footer-col" style="margin-right: 0;">
+            <h4>&#127760; Links Internacionais</h4>
+            <p>
+                <a href="#">Rep&uacute;blica do Banimento</a><br>
+                <a href="#">Imp&eacute;rio Caduziano</a><br>
+                <a href="#">Monarquia Ricardiana</a><br>
+                <a href="#">Estado Wallacy</a><br>
+                <a href="#">Rep&uacute;blica de Benzo</a><br>
+                <a href="#">Rep&uacute;blica Dinal Lerdona</a>
+            </p>
+        </div>
+        <div id="copyright">
+            <p>
+                &copy; 2026 Uni&atilde;o C.W.R.B. &mdash; Coaliz&atilde;o dos Povos Livres do Continente. Todos os direitos reservados.<br>
+                Portal desenvolvido pelo Departamento de Tecnologia da Informa&ccedil;&atilde;o da Uni&atilde;o.<br>
+                &Uacute;ltima atualiza&ccedil;&atilde;o: 16 de Maio de 2026 | Vers&atilde;o do Portal: 2.0 Aero Edition
+            </p>
+            <p style="margin-top: 8px; font-size: 10px;">
+                Este site &eacute; otimizado para navega&ccedil;&atilde;o em Internet Explorer 6+ e &eacute; compat&iacute;vel com padr&otilde;es HTML 4.01 Transitional.<br>
+                Para melhor experi&ecirc;ncia visual, recomenda-se Windows XP com tema Luna ativado.
+            </p>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>
